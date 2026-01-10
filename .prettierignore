@@ -1,0 +1,9 @@
+.expo
+.next
+node_modules
+package-lock.json
+apps/**/dist
+# prettier-plugin-sql-cst only supports sqlite syntax
+apps/**/public/images/*
+apps/**/public
+apps/**/.turbo

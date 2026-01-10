@@ -1,0 +1,51 @@
+{
+  "name": "paybill",
+  "description": "Platform Apis.",
+  "version": "0.0.0",
+  "author": "Emmanuel Bartile.",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "turbo run build",
+    "build:platform-api": "turbo run build --filter=platform-api",
+    "clean": "turbo run clean --parallel && rimraf -G node_modules/{*,.bin,.modules.yaml}",
+    "dev": "turbo run dev --parallel",
+    "dev:platform-api": "turbo run dev --filter=platform-api --parallel",
+    "codegen": "turbo run codegen --filter=api-types --parallel",
+    "lint": "turbo run lint",
+    "typecheck": "turbo --continue typecheck",
+    "test:prettier": "prettier --cache --check '{apps,packages}/**/*.{js,ts}'",
+    "format": "prettier --cache --write '{apps,packages}/**/*.{js,ts}'",
+    "test:platform-api": "turbo run test --filter=platform-api",
+    "perf:kong": "ab -t 5 -c 20 -T application/json http://localhost:8000/",
+    "platform:codegen": "cd packages/api-types && pnpm run codegen",
+    "knip": "pnpx knip@~5.50.0",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.410.0",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@types/node": "catalog:",
+    "eslint": "^9.0.0",
+    "husky": "^8.0.0",
+    "prettier": "3.2.4",
+    "rimraf": "^6.0.0",
+    "sass": "^1.72.0",
+    "supports-color": "^8.0.0",
+    "turbo": "2.3.3",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "pnpm": "10.18",
+    "node": ">=22"
+  },
+  "keywords": [
+    "storage",
+    "functions",
+    "database",
+    "auth"
+  ],
+  "packageManager": "pnpm@10.18.0"
+}

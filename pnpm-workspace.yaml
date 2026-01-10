@@ -1,0 +1,25 @@
+packages:
+  - apps/*
+  - packages/*
+  - '!**/dist/**'
+  - '!**/fixtures/**'
+
+catalog:
+  '@types/node': ^22.0.0
+  tsx: 4.20.3
+  typescript: ~5.9.0
+  valtio: ^1.12.0
+  vitest: ^3.2.0
+  zod: ^3.25.76
+
+ignoredBuiltDependencies:
+  - '@sentry/cli'
+  - esbuild
+
+minimumReleaseAge: 10080
+
+minimumReleaseAgeExclude:
+  - paybill
+
+onlyBuiltDependencies:
+  - paybill
