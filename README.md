@@ -51,13 +51,13 @@ The control plane is responsible for provisioning and managing:
 
 <p align="center">
     <picture>
-      <img src="./public/images/control-plane.png" alt="Low Level Architecture" />
+      <img src="./apps/platform-api/public/images/control-plane.png" alt="Low Level Architecture" />
     </picture>
 </p>
 
 <p align="center">
     <picture>
-      <img src="./public/images/high-level-arch.png" alt="High Level Architecture" />
+      <img src="./apps/platform-api/public/images/high-level-arch.png" alt="High Level Architecture" />
     </picture>
 </p>
 
