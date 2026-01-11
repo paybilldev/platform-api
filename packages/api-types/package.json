@@ -1,5 +1,5 @@
 {
-  "name": "api-types",
+  "name": "platform-api-types",
   "version": "0.0.0",
   "description": "Platform Api endpoint types",
   "main": "./index.ts",
@@ -9,7 +9,19 @@
     "clean": "rimraf node_modules",
     "codegen": "openapi-typescript --redocly ./redocly.yaml --alphabetize --default-non-nullable=false && prettier --cache --write types/*.d.ts"
   },
-  "author": "",
+  "author": {
+    "name": "Paybill Ke Limited",
+    "email": "support@paybill.dev"
+  },
+  "license": "BSL-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paybilldev/platform-api.git",
+    "directory": "packages/api-types"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "openapi-typescript": "^7.4.3",
     "prettier": "3.2.4",

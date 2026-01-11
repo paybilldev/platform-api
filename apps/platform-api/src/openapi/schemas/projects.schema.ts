@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { zodToJsonSchema } from '../utils/zod-to-json-schema.js'
+import {z} from 'zod';
+import {zodToJsonSchema} from '../utils/zod-to-json-schema.js';
 
 /**
  * =====================
@@ -47,12 +47,14 @@ export const ProjectInfoSchema = z.object({
   region: z.string(),
   status: z.string(),
   subscription_id: z.string().nullable(),
-})
+});
 
-export const ProjectInfoListSchema = z.array(ProjectInfoSchema)
+export const ProjectInfoListSchema = z.array(ProjectInfoSchema);
 
-export type ProjectInfo = z.infer<typeof ProjectInfoListSchema>
-export const ProjectInfoJsonSchema = zodToJsonSchema(ProjectInfoListSchema, { name: 'ProjectInfo' })
+export type ProjectInfo = z.infer<typeof ProjectInfoListSchema>;
+export const ProjectInfoJsonSchema = zodToJsonSchema(ProjectInfoListSchema, {
+  name: 'ProjectInfo',
+});
 
 // CreateProjectBody
 export const CreateProjectBodySchema = z.object({
@@ -100,29 +102,40 @@ export const CreateProjectBodySchema = z.object({
   postgres_engine: z.enum(['13', '14', '15', '17', '17-oriole']).optional(),
   region_selection: z
     .union([
-      z.object({ code: z.string(), type: z.literal('specific') }),
-      z.object({ code: z.enum(['americas', 'emea', 'apac']), type: z.literal('smartGroup') }),
+      z.object({code: z.string(), type: z.literal('specific')}),
+      z.object({
+        code: z.enum(['americas', 'emea', 'apac']),
+        type: z.literal('smartGroup'),
+      }),
     ])
     .optional(),
-  release_channel: z.enum(['internal', 'alpha', 'beta', 'ga', 'withdrawn', 'preview']).optional(),
-})
+  release_channel: z
+    .enum(['internal', 'alpha', 'beta', 'ga', 'withdrawn', 'preview'])
+    .optional(),
+});
 
-export type CreateProjectBody = z.infer<typeof CreateProjectBodySchema>
-export const CreateProjectBodyJsonSchema = zodToJsonSchema(CreateProjectBodySchema, {
-  name: 'CreateProjectBody',
-})
+export type CreateProjectBody = z.infer<typeof CreateProjectBodySchema>;
+export const CreateProjectBodyJsonSchema = zodToJsonSchema(
+  CreateProjectBodySchema,
+  {
+    name: 'CreateProjectBody',
+  },
+);
 
 // CreateProjectResponse
 export const CreateProjectResponseSchema = ProjectInfoSchema.extend({
   anon_key: z.string(),
   endpoint: z.string(),
   service_key: z.string(),
-})
+});
 
-export type CreateProjectResponse = z.infer<typeof CreateProjectResponseSchema>
-export const CreateProjectResponseJsonSchema = zodToJsonSchema(CreateProjectResponseSchema, {
-  name: 'CreateProjectResponse',
-})
+export type CreateProjectResponse = z.infer<typeof CreateProjectResponseSchema>;
+export const CreateProjectResponseJsonSchema = zodToJsonSchema(
+  CreateProjectResponseSchema,
+  {
+    name: 'CreateProjectResponse',
+  },
+);
 
 export const ProjectResourceWarningsResponseSchema = z.array(
   z.object({
@@ -136,14 +149,16 @@ export const ProjectResourceWarningsResponseSchema = z.array(
     memory_and_swap_exhaustion: z.enum(['critical', 'warning']).nullable(),
     need_pitr: z.enum(['critical', 'warning']).nullable(),
     project: z.string(),
-  })
-)
+  }),
+);
 
-export type ProjectResourceWarningsResponse = z.infer<typeof ProjectResourceWarningsResponseSchema>
+export type ProjectResourceWarningsResponse = z.infer<
+  typeof ProjectResourceWarningsResponseSchema
+>;
 export const ProjectResourceWarningsResponseJsonSchema = zodToJsonSchema(
   ProjectResourceWarningsResponseSchema,
-  { name: 'ProjectResourceWarningsResponse' }
-)
+  {name: 'ProjectResourceWarningsResponse'},
+);
 
 export const ProjectDetailResponseSchema = z.object({
   cloud_provider: z.string(),
@@ -205,46 +220,58 @@ export const ProjectDetailResponseSchema = z.object({
   ]),
   subscription_id: z.string(),
   volumeSizeGb: z.number().optional(),
-})
+});
 
-export type ProjectDetailResponse = z.infer<typeof ProjectDetailResponseSchema>
-export const ProjectDetailResponseJsonSchema = zodToJsonSchema(ProjectDetailResponseSchema, {
-  name: 'ProjectDetailResponse',
-})
+export type ProjectDetailResponse = z.infer<typeof ProjectDetailResponseSchema>;
+export const ProjectDetailResponseJsonSchema = zodToJsonSchema(
+  ProjectDetailResponseSchema,
+  {
+    name: 'ProjectDetailResponse',
+  },
+);
 
 // RemoveProjectResponse
 export const RemoveProjectResponseSchema = z.object({
   id: z.number(),
   name: z.string(),
   ref: z.string(),
-})
+});
 
-export type RemoveProjectResponse = z.infer<typeof RemoveProjectResponseSchema>
-export const RemoveProjectResponseJsonSchema = zodToJsonSchema(RemoveProjectResponseSchema, {
-  name: 'RemoveProjectResponse',
-})
+export type RemoveProjectResponse = z.infer<typeof RemoveProjectResponseSchema>;
+export const RemoveProjectResponseJsonSchema = zodToJsonSchema(
+  RemoveProjectResponseSchema,
+  {
+    name: 'RemoveProjectResponse',
+  },
+);
 
 // UpdateProjectBody
 export const UpdateProjectBodySchema = z.object({
   name: z.string(),
-})
+});
 
-export type UpdateProjectBody = z.infer<typeof UpdateProjectBodySchema>
-export const UpdateProjectBodyJsonSchema = zodToJsonSchema(UpdateProjectBodySchema, {
-  name: 'UpdateProjectBody',
-})
+export type UpdateProjectBody = z.infer<typeof UpdateProjectBodySchema>;
+export const UpdateProjectBodyJsonSchema = zodToJsonSchema(
+  UpdateProjectBodySchema,
+  {
+    name: 'UpdateProjectBody',
+  },
+);
 
 // ProjectRefResponse
 export const ProjectRefResponseSchema = z.object({
   id: z.number(),
   name: z.string(),
   ref: z.string(),
-})
+});
 
-export type ProjectRefResponse = z.infer<typeof ProjectRefResponseSchema>
-export const ProjectRefResponseJsonSchema = zodToJsonSchema(ProjectRefResponseSchema, {
-  name: 'ProjectRefResponse',
-})
+export type ProjectRefResponse = z.infer<typeof ProjectRefResponseSchema>;
+export const ProjectRefResponseJsonSchema = zodToJsonSchema(
+  ProjectRefResponseSchema,
+  {
+    name: 'ProjectRefResponse',
+  },
+);
 
 export const StorageConfigResponseSchema = z.object({
   capabilities: z.object({
@@ -285,12 +312,15 @@ export const StorageConfigResponseSchema = z.object({
   fileSizeLimit: z.number(),
 
   migrationVersion: z.string(),
-})
+});
 
-export type StorageConfigResponse = z.infer<typeof StorageConfigResponseSchema>
-export const StorageConfigResponseJsonSchema = zodToJsonSchema(StorageConfigResponseSchema, {
-  name: 'StorageConfigResponse',
-})
+export type StorageConfigResponse = z.infer<typeof StorageConfigResponseSchema>;
+export const StorageConfigResponseJsonSchema = zodToJsonSchema(
+  StorageConfigResponseSchema,
+  {
+    name: 'StorageConfigResponse',
+  },
+);
 
 export const UpdateStorageConfigBodySchema = z.object({
   external: z
@@ -334,9 +364,14 @@ export const UpdateStorageConfigBodySchema = z.object({
 
   // int64 → number in JS/TS
   fileSizeLimit: z.number().optional(),
-})
+});
 
-export type UpdateStorageConfigBody = z.infer<typeof UpdateStorageConfigBodySchema>
-export const UpdateStorageConfigBodyJsonSchema = zodToJsonSchema(UpdateStorageConfigBodySchema, {
-  name: 'UpdateStorageConfigBody',
-})
+export type UpdateStorageConfigBody = z.infer<
+  typeof UpdateStorageConfigBodySchema
+>;
+export const UpdateStorageConfigBodyJsonSchema = zodToJsonSchema(
+  UpdateStorageConfigBodySchema,
+  {
+    name: 'UpdateStorageConfigBody',
+  },
+);

@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { zodToJsonSchema } from '../utils/zod-to-json-schema.js'
+import {z} from 'zod';
+import {zodToJsonSchema} from '../utils/zod-to-json-schema.js';
 
 // WorkflowRunResponse
 export const WorkflowRunResponseSchema = z.array(
@@ -19,10 +19,13 @@ export const WorkflowRunResponseSchema = z.array(
     ]),
     updated_at: z.string(),
     workdir: z.string().nullable(),
-  })
-)
+  }),
+);
 
-export type WorkflowRunResponse = z.infer<typeof WorkflowRunResponseSchema>
-export const WorkflowRunResponseJsonSchema = zodToJsonSchema(WorkflowRunResponseSchema, {
-  name: 'WorkflowRunResponse',
-})
+export type WorkflowRunResponse = z.infer<typeof WorkflowRunResponseSchema>;
+export const WorkflowRunResponseJsonSchema = zodToJsonSchema(
+  WorkflowRunResponseSchema,
+  {
+    name: 'WorkflowRunResponse',
+  },
+);

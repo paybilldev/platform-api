@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from 'fastify'
+import type {FastifyPluginAsync} from 'fastify';
 import {
   BackupsResponse,
   CloneBackupsResponse,
@@ -11,77 +11,86 @@ import {
   ProjectClonedStatusResponse,
   RestoreLogicalBackupBody,
   RestorePhysicalBackupBody,
-} from '../openapi/index.js'
+} from '../openapi/index.js';
 
 export const enableHooks = async (ref: string): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
 export const enablePhysicalBackup = async (ref: string): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
 export const getBackups = async (ref: string): Promise<BackupsResponse> => {
   // TODO:
-  return {} as BackupsResponse
-}
+  return {} as BackupsResponse;
+};
 
 export const downloadBackup = async (
   ref: string,
-  body: DownloadBackupBody
+  body: DownloadBackupBody,
 ): Promise<DownloadBackupResponse> => {
   // TODO:
-  return {} as DownloadBackupResponse
-}
+  return {} as DownloadBackupResponse;
+};
 
-export const getDownloadableBackups = async (ref: string): Promise<DownloadableBackupsResponse> => {
+export const getDownloadableBackups = async (
+  ref: string,
+): Promise<DownloadableBackupsResponse> => {
   // TODO:
-  return {} as DownloadableBackupsResponse
-}
+  return {} as DownloadableBackupsResponse;
+};
 
 export const restorePointInTimeBackup = async (
   ref: string,
-  body: PointInTimeRestoreBody
+  body: PointInTimeRestoreBody,
 ): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
-export const restoreBackup = async (ref: string, body: RestoreLogicalBackupBody): Promise<null> => {
+export const restoreBackup = async (
+  ref: string,
+  body: RestoreLogicalBackupBody,
+): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
 export const restorePhysicalBackup = async (
   ref: string,
-  body: RestorePhysicalBackupBody
+  body: RestorePhysicalBackupBody,
 ): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
-export const getValidBackups = async (ref: string): Promise<CloneBackupsResponse> => {
+export const getValidBackups = async (
+  ref: string,
+): Promise<CloneBackupsResponse> => {
   // TODO:
-  return {} as CloneBackupsResponse
-}
+  return {} as CloneBackupsResponse;
+};
 
 export const cloneCurrentProject = async (
   ref: string,
-  body: CloneProject
+  body: CloneProject,
 ): Promise<ProjectClonedResponse> => {
   // TODO:
-  return {} as ProjectClonedResponse
-}
+  return {} as ProjectClonedResponse;
+};
 
-export const cloneProjectStatus = async (ref: string): Promise<ProjectClonedStatusResponse> => {
+export const cloneProjectStatus = async (
+  ref: string,
+): Promise<ProjectClonedStatusResponse> => {
   // TODO:
-  return {} as ProjectClonedStatusResponse
-}
+  return {} as ProjectClonedStatusResponse;
+};
 
-const databaseRoutes: FastifyPluginAsync = async (app) => {
-  app.get<{ Params: { ref: string } }>(
+const databaseRoutes: FastifyPluginAsync = async app => {
+  app.get<{Params: {ref: string}}>(
     '/:ref/backups',
     {
       schema: {
@@ -122,12 +131,12 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getBackups(request.params.ref)
-      return reply.send(config)
-    }
-  )
+      const config = await getBackups(request.params.ref);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: DownloadBackupBody }>(
+  app.post<{Params: {ref: string}; Body: DownloadBackupBody}>(
     '/:ref/backups/download',
     {
       schema: {
@@ -172,16 +181,17 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await downloadBackup(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await downloadBackup(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { ref: string } }>(
+  app.get<{Params: {ref: string}}>(
     '/:ref/backups/downloadable-backups',
     {
       schema: {
-        description: 'Gets backups that might be downloadable, but potentially not restorable',
+        description:
+          'Gets backups that might be downloadable, but potentially not restorable',
         tags: ['Database'],
         operationId: 'BackupsController_getDownloadableBackups',
         params: {
@@ -218,12 +228,12 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getDownloadableBackups(request.params.ref)
-      return reply.send(config)
-    }
-  )
+      const config = await getDownloadableBackups(request.params.ref);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string } }>(
+  app.post<{Params: {ref: string}}>(
     '/:ref/backups/enable-physical-backups',
     {
       schema: {
@@ -265,12 +275,12 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await enablePhysicalBackup(request.params.ref)
-      return reply.send(config)
-    }
-  )
+      const config = await enablePhysicalBackup(request.params.ref);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: PointInTimeRestoreBody }>(
+  app.post<{Params: {ref: string}; Body: PointInTimeRestoreBody}>(
     '/:ref/backups/pitr',
     {
       schema: {
@@ -309,19 +319,23 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
             type: 'null',
           },
           500: {
-            description: 'Failed to restore project to a previous point in time',
+            description:
+              'Failed to restore project to a previous point in time',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      const config = await restorePointInTimeBackup(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await restorePointInTimeBackup(
+        request.params.ref,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: RestoreLogicalBackupBody }>(
+  app.post<{Params: {ref: string}; Body: RestoreLogicalBackupBody}>(
     '/:ref/backups/restore',
     {
       schema: {
@@ -367,12 +381,12 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await restoreBackup(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await restoreBackup(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: RestorePhysicalBackupBody }>(
+  app.post<{Params: {ref: string}; Body: RestorePhysicalBackupBody}>(
     '/:ref/backups/restore-physical',
     {
       schema: {
@@ -418,12 +432,15 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await restorePhysicalBackup(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await restorePhysicalBackup(
+        request.params.ref,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { ref: string } }>(
+  app.get<{Params: {ref: string}}>(
     '/:ref/clone',
     {
       schema: {
@@ -464,12 +481,12 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getValidBackups(request.params.ref)
-      return reply.send(config)
-    }
-  )
+      const config = await getValidBackups(request.params.ref);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: CloneProject }>(
+  app.post<{Params: {ref: string}; Body: CloneProject}>(
     '/:ref/clone',
     {
       schema: {
@@ -514,16 +531,20 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await cloneCurrentProject(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await cloneCurrentProject(
+        request.params.ref,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { ref: string } }>(
+  app.get<{Params: {ref: string}}>(
     '/:ref/clone/status',
     {
       schema: {
-        description: 'Retrieve the current status of an existing cloning process',
+        description:
+          'Retrieve the current status of an existing cloning process',
         tags: ['Database'],
         operationId: 'CloneController_cloneProjectStatus',
         params: {
@@ -560,12 +581,12 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await cloneProjectStatus(request.params.ref)
-      return reply.send(config)
-    }
-  )
+      const config = await cloneProjectStatus(request.params.ref);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string } }>(
+  app.post<{Params: {ref: string}}>(
     '/:ref/hook-enable',
     {
       schema: {
@@ -584,7 +605,8 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
         },
         response: {
           201: {
-            description: 'Successfully enabled Database Webhooks on the project',
+            description:
+              'Successfully enabled Database Webhooks on the project',
             type: 'null',
           },
           401: {
@@ -607,10 +629,10 @@ const databaseRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await enableHooks(request.params.ref)
-      return reply.send(config)
-    }
-  )
-}
+      const config = await enableHooks(request.params.ref);
+      return reply.send(config);
+    },
+  );
+};
 
-export default databaseRoutes
+export default databaseRoutes;

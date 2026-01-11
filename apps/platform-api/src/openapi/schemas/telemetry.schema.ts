@@ -1,65 +1,83 @@
-import { z } from 'zod'
-import { zodToJsonSchema } from '../utils/zod-to-json-schema.js'
+import {z} from 'zod';
+import {zodToJsonSchema} from '../utils/zod-to-json-schema.js';
 
 export const TelemetryIdentifyBodySchema = z.object({
   anonymous_id: z.string().optional(),
   organization_slug: z.string().optional(),
   project_ref: z.string().optional(),
   user_id: z.string(),
-})
+});
 
-export type TelemetryIdentifyBody = z.infer<typeof TelemetryIdentifyBodySchema>
+export type TelemetryIdentifyBody = z.infer<typeof TelemetryIdentifyBodySchema>;
 
-export const TelemetryIdentifyBodyJsonSchema = zodToJsonSchema(TelemetryIdentifyBodySchema, {
-  name: 'TelemetryIdentifyBody',
-})
+export const TelemetryIdentifyBodyJsonSchema = zodToJsonSchema(
+  TelemetryIdentifyBodySchema,
+  {
+    name: 'TelemetryIdentifyBody',
+  },
+);
 
 export const TelemetryGroupsResetBodySchema = z.object({
   reset_organization: z.boolean().optional(),
   reset_project: z.boolean().optional(),
-})
+});
 
-export type TelemetryGroupsResetBody = z.infer<typeof TelemetryGroupsResetBodySchema>
+export type TelemetryGroupsResetBody = z.infer<
+  typeof TelemetryGroupsResetBodySchema
+>;
 
-export const TelemetryGroupsResetBodyJsonSchema = zodToJsonSchema(TelemetryGroupsResetBodySchema, {
-  name: 'TelemetryGroupsResetBody',
-})
+export const TelemetryGroupsResetBodyJsonSchema = zodToJsonSchema(
+  TelemetryGroupsResetBodySchema,
+  {
+    name: 'TelemetryGroupsResetBody',
+  },
+);
 
 export const TelemetryGroupsIdentityBodySchema = z.object({
   organization_slug: z.string().optional(),
   project_ref: z.string().optional(),
-})
+});
 
-export type TelemetryGroupsIdentityBody = z.infer<typeof TelemetryGroupsIdentityBodySchema>
+export type TelemetryGroupsIdentityBody = z.infer<
+  typeof TelemetryGroupsIdentityBodySchema
+>;
 
 export const TelemetryGroupsIdentityBodyJsonSchema = zodToJsonSchema(
   TelemetryGroupsIdentityBodySchema,
-  { name: 'TelemetryGroupsIdentityBody' }
-)
+  {name: 'TelemetryGroupsIdentityBody'},
+);
 
-export const TelemetryCallFeatureFlagsResponseSchema = z.record(z.string(), z.unknown())
+export const TelemetryCallFeatureFlagsResponseSchema = z.record(
+  z.string(),
+  z.unknown(),
+);
 
 export type TelemetryCallFeatureFlagsResponse = z.infer<
   typeof TelemetryCallFeatureFlagsResponseSchema
->
+>;
 
 export const TelemetryCallFeatureFlagsResponseJsonSchema = zodToJsonSchema(
   TelemetryCallFeatureFlagsResponseSchema,
   {
     name: 'TelemetryCallFeatureFlagsResponse',
-  }
-)
+  },
+);
 
 export const TelemetryFeatureFlagBodySchema = z.object({
   feature_flag_name: z.string(),
   feature_flag_value: z.unknown().optional(),
-})
+});
 
-export type TelemetryFeatureFlagBody = z.infer<typeof TelemetryFeatureFlagBodySchema>
+export type TelemetryFeatureFlagBody = z.infer<
+  typeof TelemetryFeatureFlagBodySchema
+>;
 
-export const TelemetryFeatureFlagBodyJsonSchema = zodToJsonSchema(TelemetryFeatureFlagBodySchema, {
-  name: 'TelemetryFeatureFlagBody',
-})
+export const TelemetryFeatureFlagBodyJsonSchema = zodToJsonSchema(
+  TelemetryFeatureFlagBodySchema,
+  {
+    name: 'TelemetryFeatureFlagBody',
+  },
+);
 
 const TelemetryEventPHSchema = z.object({
   language: z.string(),
@@ -68,12 +86,12 @@ const TelemetryEventPHSchema = z.object({
   user_agent: z.string(),
   viewport_height: z.number(),
   viewport_width: z.number(),
-})
+});
 
 const TelemetryEventGroupsSchema = z.object({
   organization: z.string().optional(),
   project: z.string().optional(),
-})
+});
 
 export const TelemetryEventBodySchema = z.object({
   action: z.string(),
@@ -83,10 +101,13 @@ export const TelemetryEventBodySchema = z.object({
   page_url: z.string(),
   pathname: z.string(),
   ph: TelemetryEventPHSchema,
-})
+});
 
-export type TelemetryEventBody = z.infer<typeof TelemetryEventBodySchema>
+export type TelemetryEventBody = z.infer<typeof TelemetryEventBodySchema>;
 
-export const TelemetryEventBodyJsonSchema = zodToJsonSchema(TelemetryEventBodySchema, {
-  name: 'TelemetryEventBody',
-})
+export const TelemetryEventBodyJsonSchema = zodToJsonSchema(
+  TelemetryEventBodySchema,
+  {
+    name: 'TelemetryEventBody',
+  },
+);

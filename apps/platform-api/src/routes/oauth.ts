@@ -1,26 +1,26 @@
-import type { FastifyPluginAsync } from 'fastify'
+import type {FastifyPluginAsync} from 'fastify';
 import {
   CreateOAuthAppResponse,
   DynamicRegisterOAuthAppBody,
   GetOAuthAuthorizationResponse,
-} from '../openapi/index.js'
+} from '../openapi/index.js';
 
 export const dynamicRegister = async (
-  body: DynamicRegisterOAuthAppBody
+  body: DynamicRegisterOAuthAppBody,
 ): Promise<CreateOAuthAppResponse> => {
   // TODO:
-  return {} as CreateOAuthAppResponse
-}
+  return {} as CreateOAuthAppResponse;
+};
 
 export const getAuthorizationRequest = async (
-  id: string
+  id: string,
 ): Promise<GetOAuthAuthorizationResponse> => {
   // TODO:
-  return {} as GetOAuthAuthorizationResponse
-}
+  return {} as GetOAuthAuthorizationResponse;
+};
 
-const oauthRoutes: FastifyPluginAsync = async (app) => {
-  app.post<{ Body: DynamicRegisterOAuthAppBody }>(
+const oauthRoutes: FastifyPluginAsync = async app => {
+  app.post<{Body: DynamicRegisterOAuthAppBody}>(
     '/apps/register',
     {
       schema: {
@@ -39,12 +39,12 @@ const oauthRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await dynamicRegister(request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await dynamicRegister(request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { id: string } }>(
+  app.get<{Params: {id: string}}>(
     '/authorizations/:id',
     {
       schema: {
@@ -69,10 +69,10 @@ const oauthRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getAuthorizationRequest(request.params.id)
-      return reply.send(config)
-    }
-  )
-}
+      const config = await getAuthorizationRequest(request.params.id);
+      return reply.send(config);
+    },
+  );
+};
 
-export default oauthRoutes
+export default oauthRoutes;

@@ -16,10 +16,4 @@ ignoredBuiltDependencies:
   - '@sentry/cli'
   - esbuild
 
-minimumReleaseAge: 10080
-
-minimumReleaseAgeExclude:
-  - paybill
-
-onlyBuiltDependencies:
-  - paybill
+# minimumReleaseAge: 10080

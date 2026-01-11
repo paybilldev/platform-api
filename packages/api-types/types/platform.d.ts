@@ -3355,7 +3355,7 @@ export interface components {
           }
         | {
             iceberg: {
-              paybill: {
+              platform: {
                 catalog_token: string
                 namespace?: string
                 project_ref: string
@@ -3381,7 +3381,7 @@ export interface components {
           }
         | {
             iceberg: {
-              paybill: {
+              platform: {
                 catalog_token: string
                 namespace?: string
                 project_ref: string
@@ -4883,7 +4883,7 @@ export interface components {
           }
         | {
             iceberg: {
-              paybill: {
+              platform: {
                 catalog_token: string
                 namespace?: string
                 project_ref: string
@@ -4912,7 +4912,7 @@ export interface components {
             }
           | {
               iceberg: {
-                paybill: {
+                platform: {
                   catalog_token: string
                   namespace?: string
                   project_ref: string
@@ -5867,7 +5867,7 @@ export interface components {
           }
         | {
             iceberg: {
-              paybill: {
+              platform: {
                 catalog_token: string
                 namespace?: string
                 project_ref: string
@@ -5893,7 +5893,7 @@ export interface components {
           }
         | {
             iceberg: {
-              paybill: {
+              platform: {
                 catalog_token: string
                 namespace?: string
                 project_ref: string

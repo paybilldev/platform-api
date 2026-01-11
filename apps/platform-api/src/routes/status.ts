@@ -1,10 +1,10 @@
-import type { FastifyPluginAsync } from 'fastify'
+import type {FastifyPluginAsync} from 'fastify';
 
 async function getInfrastructureStatus(): Promise<void> {
   // Implement your infrastructure status check here
 }
 
-const statusRoutes: FastifyPluginAsync = async (app) => {
+const statusRoutes: FastifyPluginAsync = async app => {
   app.get(
     '/',
     {
@@ -26,13 +26,13 @@ const statusRoutes: FastifyPluginAsync = async (app) => {
     },
     async (_request, reply) => {
       try {
-        await getInfrastructureStatus()
-        return reply.status(200).send()
+        await getInfrastructureStatus();
+        return reply.status(200).send();
       } catch (err) {
-        return reply.status(500).send()
+        return reply.status(500).send();
       }
-    }
-  )
-}
+    },
+  );
+};
 
-export default statusRoutes
+export default statusRoutes;

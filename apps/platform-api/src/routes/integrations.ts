@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync, FastifyRequest } from 'fastify'
+import type {FastifyPluginAsync, FastifyRequest} from 'fastify';
 import {
   CreateGitHubAuthorizationBody,
   CreateGitHubConnectionBody,
@@ -13,117 +13,125 @@ import {
   PrivateLinkResponse,
   UpdateGitHubConnectionBody,
   UpdatePrivateLinkBody,
-} from '../openapi/index.js'
+} from '../openapi/index.js';
 
 async function updatePrivateLinkConfig(
   slug: string,
-  body: UpdatePrivateLinkBody
+  body: UpdatePrivateLinkBody,
 ): Promise<PrivateLinkResponse> {
   // TODO:
-  return {} as PrivateLinkResponse
+  return {} as PrivateLinkResponse;
 }
 
-async function getPrivateLinkConfig(slug: string): Promise<PrivateLinkResponse> {
+async function getPrivateLinkConfig(
+  slug: string,
+): Promise<PrivateLinkResponse> {
   // TODO:
-  return {} as PrivateLinkResponse
+  return {} as PrivateLinkResponse;
 }
 
 async function listRepositoryBranches(
-  repository_id: string
+  repository_id: string,
 ): Promise<ListRepositoryBranchesResponse> {
   // TODO:
-  return {} as ListRepositoryBranchesResponse
+  return {} as ListRepositoryBranchesResponse;
 }
 
 async function getRepository(
   repository_id: string,
-  branch_name: string
+  branch_name: string,
 ): Promise<GitHubBranchResponse> {
   // TODO:
-  return {} as GitHubBranchResponse
+  return {} as GitHubBranchResponse;
 }
 
-async function listRepositories(request: FastifyRequest): Promise<ListGitHubRepositoriesResponse> {
+async function listRepositories(
+  request: FastifyRequest,
+): Promise<ListGitHubRepositoriesResponse> {
   // TODO:
-  return {} as ListGitHubRepositoriesResponse
+  return {} as ListGitHubRepositoriesResponse;
 }
 
 async function updateGitHubConnection(
   connection_id: string,
-  body: UpdateGitHubConnectionBody
+  body: UpdateGitHubConnectionBody,
 ): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
 async function deleteGitHubConnection(connection_id: string): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
 async function createGitHubConnection(
-  body: CreateGitHubConnectionBody
+  body: CreateGitHubConnectionBody,
 ): Promise<CreateGitHubConnectionResponse> {
   // TODO:
-  return {} as CreateGitHubConnectionResponse
+  return {} as CreateGitHubConnectionResponse;
 }
 
 async function listOrganizationGitHubConnections(
-  organization_id: string
+  organization_id: string,
 ): Promise<ListGitHubConnectionsResponse> {
   // TODO:
-  return {} as ListGitHubConnectionsResponse
+  return {} as ListGitHubConnectionsResponse;
 }
 
 async function getConnectionBranch(
   connection_id: string,
-  branch_name: string
+  branch_name: string,
 ): Promise<GitHubBranchResponse> {
   // TODO:
-  return {} as GitHubBranchResponse
+  return {} as GitHubBranchResponse;
 }
 
 async function listConnectionBranches(
   connection_id: string,
   page: number,
-  per_page: number
+  per_page: number,
 ): Promise<GitHubBranchResponse> {
   // TODO:
-  return {} as GitHubBranchResponse
+  return {} as GitHubBranchResponse;
 }
 
-async function createGitHubAuthorization(body: CreateGitHubAuthorizationBody): Promise<null> {
+async function createGitHubAuthorization(
+  body: CreateGitHubAuthorizationBody,
+): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
-async function removeGitHubAuthorization(request: FastifyRequest): Promise<null> {
+async function removeGitHubAuthorization(
+  request: FastifyRequest,
+): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
 async function getGitHubAuthorization(
-  request: FastifyRequest
+  request: FastifyRequest,
 ): Promise<GitHubAuthorizationResponse> {
   // TODO:
-  return {} as GitHubAuthorizationResponse
+  return {} as GitHubAuthorizationResponse;
 }
 
 async function getUserInstallations(
-  request: FastifyRequest
+  request: FastifyRequest,
 ): Promise<GetUserOrganizationIntegrationResponse> {
   // TODO:
-  return {} as GetUserOrganizationIntegrationResponse
+  return {} as GetUserOrganizationIntegrationResponse;
 }
 
 async function getUserInstallationForOrg(
-  slug: string
+  slug: string,
 ): Promise<GetOrganizationIntegrationResponse> {
   // TODO:
-  return {} as GetOrganizationIntegrationResponse
+  return {} as GetOrganizationIntegrationResponse;
 }
 
-const integrationsRoutes: FastifyPluginAsync = async (app) => {
+const integrationsRoutes: FastifyPluginAsync = async app => {
   app.get<{}>(
     '/',
     {
@@ -143,12 +151,12 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getUserInstallations(request)
-      return reply.send(config)
-    }
-  )
+      const config = await getUserInstallations(request);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { slug: string } }>(
+  app.get<{Params: {slug: string}}>(
     '/:slug',
     {
       schema: {
@@ -182,19 +190,20 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
             type: 'null',
           },
           500: {
-            description: 'Failed to get integration with the given organization slug',
+            description:
+              'Failed to get integration with the given organization slug',
             type: 'object',
           },
         },
       },
     },
     async (request, reply) => {
-      const config = await getUserInstallationForOrg(request.params.slug)
-      return reply.send(config)
-    }
-  )
+      const config = await getUserInstallationForOrg(request.params.slug);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { slug: string } }>(
+  app.get<{Params: {slug: string}}>(
     '/github/authorization',
     {
       schema: {
@@ -223,12 +232,12 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getGitHubAuthorization(request)
-      return reply.send(config)
-    }
-  )
+      const config = await getGitHubAuthorization(request);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Body: CreateGitHubAuthorizationBody }>(
+  app.post<{Body: CreateGitHubAuthorizationBody}>(
     '/github/authorization',
     {
       schema: {
@@ -253,12 +262,12 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await createGitHubAuthorization(request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await createGitHubAuthorization(request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.delete<{ Params: { slug: string } }>(
+  app.delete<{Params: {slug: string}}>(
     '/github/authorization',
     {
       schema: {
@@ -282,7 +291,8 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
             type: 'null',
           },
           404: {
-            description: 'There was no GitHub authorization attached to the user',
+            description:
+              'There was no GitHub authorization attached to the user',
             type: 'null',
           },
           500: {
@@ -293,18 +303,19 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await removeGitHubAuthorization(request)
-      return reply.send(config)
-    }
-  )
+      const config = await removeGitHubAuthorization(request);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Querystring: { organization_id: number } }>(
+  app.get<{Querystring: {organization_id: number}}>(
     '/github/connections',
     {
       schema: {
         description: 'List organization GitHub connections',
         tags: ['Integrations'],
-        operationId: 'GitHubConnectionsController_listOrganizationGitHubConnections',
+        operationId:
+          'GitHubConnectionsController_listOrganizationGitHubConnections',
         querystring: {
           type: 'object',
           properties: {
@@ -328,13 +339,13 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
     },
     async (request, reply) => {
       const config = await listOrganizationGitHubConnections(
-        request.query.organization_id.toString()
-      )
-      return reply.send(config)
-    }
-  )
+        request.query.organization_id.toString(),
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Body: CreateGitHubConnectionBody }>(
+  app.post<{Body: CreateGitHubConnectionBody}>(
     '/github/connections',
     {
       schema: {
@@ -357,12 +368,12 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await createGitHubConnection(request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await createGitHubConnection(request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.delete<{ Params: { connection_id: string } }>(
+  app.delete<{Params: {connection_id: string}}>(
     '/github/connections/:connection_id',
     {
       schema: {
@@ -385,19 +396,23 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
             type: 'null',
           },
           500: {
-            description: 'Failed to delete github integration project connection',
+            description:
+              'Failed to delete github integration project connection',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      const config = await deleteGitHubConnection(request.params.connection_id)
-      return reply.send(config)
-    }
-  )
+      const config = await deleteGitHubConnection(request.params.connection_id);
+      return reply.send(config);
+    },
+  );
 
-  app.patch<{ Params: { connection_id: string }; Body: UpdateGitHubConnectionBody }>(
+  app.patch<{
+    Params: {connection_id: string};
+    Body: UpdateGitHubConnectionBody;
+  }>(
     '/github/connections/:connection_id',
     {
       schema: {
@@ -431,10 +446,13 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await updateGitHubConnection(request.params.connection_id, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await updateGitHubConnection(
+        request.params.connection_id,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
 
   app.get<{}>(
     '/github/repositories',
@@ -455,12 +473,12 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await listRepositories(request)
-      return reply.send(config)
-    }
-  )
+      const config = await listRepositories(request);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { repository_id: string } }>(
+  app.get<{Params: {repository_id: string}}>(
     '/github/repositories/:repository_id/branches',
     {
       schema: {
@@ -489,12 +507,12 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await listRepositoryBranches(request.params.repository_id)
-      return reply.send(config)
-    }
-  )
+      const config = await listRepositoryBranches(request.params.repository_id);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { repository_id: string; branch_name: string } }>(
+  app.get<{Params: {repository_id: string; branch_name: string}}>(
     '/github/repositories/:repository_id/branches/:branch_name',
     {
       schema: {
@@ -528,12 +546,15 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getRepository(request.params.repository_id, request.params.branch_name)
-      return reply.send(config)
-    }
-  )
+      const config = await getRepository(
+        request.params.repository_id,
+        request.params.branch_name,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { slug: string } }>(
+  app.get<{Params: {slug: string}}>(
     '/private-link/:slug',
     {
       schema: {
@@ -574,12 +595,12 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getPrivateLinkConfig(request.params.slug)
-      return reply.send(config)
-    }
-  )
+      const config = await getPrivateLinkConfig(request.params.slug);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { slug: string }; Body: UpdatePrivateLinkBody }>(
+  app.post<{Params: {slug: string}; Body: UpdatePrivateLinkBody}>(
     '/private-link/:slug',
     {
       schema: {
@@ -617,17 +638,21 @@ const integrationsRoutes: FastifyPluginAsync = async (app) => {
             type: 'null',
           },
           500: {
-            description: "Failed to update organization's PrivateLink configuration",
+            description:
+              "Failed to update organization's PrivateLink configuration",
             type: 'object',
           },
         },
       },
     },
     async (request, reply) => {
-      const config = await updatePrivateLinkConfig(request.params.slug, request.body)
-      return reply.send(config)
-    }
-  )
-}
+      const config = await updatePrivateLinkConfig(
+        request.params.slug,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
+};
 
-export default integrationsRoutes
+export default integrationsRoutes;

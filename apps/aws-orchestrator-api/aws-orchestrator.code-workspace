@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "name": "aws-orchestrator-api",
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules/": true,
+    }
+  }
+}
