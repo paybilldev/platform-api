@@ -1,47 +1,49 @@
-import type { FastifyPluginAsync } from 'fastify'
+import type {FastifyPluginAsync} from 'fastify';
 import {
   NotificationResponse,
   NotificationsSummary,
   UpdateNotificationBody,
-} from '../openapi/index.js'
+} from '../openapi/index.js';
 
 async function getNotifications(query: {
-  limit?: number
-  offset?: number
-  org_slug?: string
-  priority?: string
-  project_ref?: string
-  status?: string
+  limit?: number;
+  offset?: number;
+  org_slug?: string;
+  priority?: string;
+  project_ref?: string;
+  status?: string;
 }): Promise<NotificationResponse> {
   // TODO:
-  return {} as NotificationResponse
+  return {} as NotificationResponse;
 }
 
 async function archiveAllNotifications(): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
-async function updateNotifications(body: UpdateNotificationBody): Promise<NotificationResponse> {
+async function updateNotifications(
+  body: UpdateNotificationBody,
+): Promise<NotificationResponse> {
   // TODO:
-  return {} as NotificationResponse
+  return {} as NotificationResponse;
 }
 
 async function getNotificationsSummary(): Promise<NotificationsSummary> {
   // TODO:
-  return {} as NotificationsSummary
+  return {} as NotificationsSummary;
 }
 
-const notificationsRoutes: FastifyPluginAsync = async (app) => {
+const notificationsRoutes: FastifyPluginAsync = async app => {
   app.get<{
     Querystring: {
-      limit?: number
-      offset?: number
-      org_slug?: string
-      priority?: string
-      project_ref?: string
-      status?: string
-    }
+      limit?: number;
+      offset?: number;
+      org_slug?: string;
+      priority?: string;
+      project_ref?: string;
+      status?: string;
+    };
   }>(
     '/',
     {
@@ -90,12 +92,12 @@ const notificationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getNotifications(request.query)
-      return reply.send(config)
-    }
-  )
+      const config = await getNotifications(request.query);
+      return reply.send(config);
+    },
+  );
 
-  app.patch<{ Body: UpdateNotificationBody }>(
+  app.patch<{Body: UpdateNotificationBody}>(
     '/',
     {
       schema: {
@@ -118,10 +120,10 @@ const notificationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await updateNotifications(request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await updateNotifications(request.body);
+      return reply.send(config);
+    },
+  );
 
   app.patch<{}>(
     '/archive-all',
@@ -143,16 +145,17 @@ const notificationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await archiveAllNotifications()
-      return reply.send(config)
-    }
-  )
+      const config = await archiveAllNotifications();
+      return reply.send(config);
+    },
+  );
 
   app.get<{}>(
     '/summary',
     {
       schema: {
-        description: 'Get an aggregated data of interest across all notifications for the user.',
+        description:
+          'Get an aggregated data of interest across all notifications for the user.',
         tags: ['Notifications'],
         operationId: 'NotificationsController_getNotificationsSummary',
         response: {
@@ -163,10 +166,10 @@ const notificationsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getNotificationsSummary()
-      return reply.send(config)
-    }
-  )
-}
+      const config = await getNotificationsSummary();
+      return reply.send(config);
+    },
+  );
+};
 
-export default notificationsRoutes
+export default notificationsRoutes;

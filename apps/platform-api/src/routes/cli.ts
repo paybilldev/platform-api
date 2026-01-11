@@ -1,18 +1,20 @@
-import type { FastifyPluginAsync } from 'fastify'
-import { CreateCliLoginSessionBody } from '../openapi/index.js'
+import type {FastifyPluginAsync} from 'fastify';
+import {CreateCliLoginSessionBody} from '../openapi/index.js';
 
-export const createCliLoginSession = async (body: CreateCliLoginSessionBody): Promise<null> => {
+export const createCliLoginSession = async (
+  body: CreateCliLoginSessionBody,
+): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
 export const getCliLoginSession = async (session_id: string): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
-const cliRoutes: FastifyPluginAsync = async (app) => {
-  app.post<{ Body: CreateCliLoginSessionBody }>(
+const cliRoutes: FastifyPluginAsync = async app => {
+  app.post<{Body: CreateCliLoginSessionBody}>(
     '/login',
     {
       schema: {
@@ -36,12 +38,12 @@ const cliRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await createCliLoginSession(request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await createCliLoginSession(request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { session_id: string }; Querystring: { device_code?: string } }>(
+  app.get<{Params: {session_id: string}; Querystring: {device_code?: string}}>(
     '/login/:session_id',
     {
       schema: {
@@ -80,10 +82,10 @@ const cliRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getCliLoginSession(request.params.session_id)
-      return reply.send(config)
-    }
-  )
-}
+      const config = await getCliLoginSession(request.params.session_id);
+      return reply.send(config);
+    },
+  );
+};
 
-export default cliRoutes
+export default cliRoutes;

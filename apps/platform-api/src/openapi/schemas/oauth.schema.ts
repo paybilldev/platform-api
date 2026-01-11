@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { zodToJsonSchema } from '../utils/zod-to-json-schema.js'
+import {z} from 'zod';
+import {zodToJsonSchema} from '../utils/zod-to-json-schema.js';
 
 const GetOAuthAuthorizationResponseSchema = z.object({
   approved_at: z.string().optional(),
@@ -38,12 +38,12 @@ const GetOAuthAuthorizationResponseSchema = z.object({
         'secrets:write',
         'storage:read',
         'storage:write',
-      ])
+      ]),
     )
     .optional(),
 
   website: z.string(),
-})
+});
 
 const CreateOAuthAppResponseSchema = z.object({
   client_id: z.string(),
@@ -51,7 +51,7 @@ const CreateOAuthAppResponseSchema = z.object({
   client_secret_expires_at: z.number().optional(),
   id: z.string(),
   redirect_uris: z.array(z.string()),
-})
+});
 
 const DynamicRegisterOAuthAppBodySchema = z.object({
   client_name: z.string(),
@@ -65,28 +65,37 @@ const DynamicRegisterOAuthAppBodySchema = z.object({
   /** @default organizations:read projects:read projects:write database:write database:read analytics:read secrets:read edge_functions:read edge_functions:write environment:read environment:write storage:read */
   scope: z.string().optional(),
   token_endpoint_auth_method: z.string().optional(),
-})
+});
 
-export type DynamicRegisterOAuthAppBody = z.infer<typeof DynamicRegisterOAuthAppBodySchema>
+export type DynamicRegisterOAuthAppBody = z.infer<
+  typeof DynamicRegisterOAuthAppBodySchema
+>;
 
 export const DynamicRegisterOAuthAppBodyJsonSchema = zodToJsonSchema(
   DynamicRegisterOAuthAppBodySchema,
   {
     name: 'DynamicRegisterOAuthAppBody',
-  }
-)
+  },
+);
 
-export type CreateOAuthAppResponse = z.infer<typeof CreateOAuthAppResponseSchema>
+export type CreateOAuthAppResponse = z.infer<
+  typeof CreateOAuthAppResponseSchema
+>;
 
-export const CreateOAuthAppResponseJsonSchema = zodToJsonSchema(CreateOAuthAppResponseSchema, {
-  name: 'CreateOAuthAppResponse',
-})
+export const CreateOAuthAppResponseJsonSchema = zodToJsonSchema(
+  CreateOAuthAppResponseSchema,
+  {
+    name: 'CreateOAuthAppResponse',
+  },
+);
 
-export type GetOAuthAuthorizationResponse = z.infer<typeof GetOAuthAuthorizationResponseSchema>
+export type GetOAuthAuthorizationResponse = z.infer<
+  typeof GetOAuthAuthorizationResponseSchema
+>;
 
 export const GetOAuthAuthorizationResponseJsonSchema = zodToJsonSchema(
   GetOAuthAuthorizationResponseSchema,
   {
     name: 'GetOAuthAuthorizationResponse',
-  }
-)
+  },
+);

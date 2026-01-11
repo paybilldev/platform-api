@@ -1,36 +1,40 @@
-import type { FastifyPluginAsync } from 'fastify'
-import { WorkflowRunResponse } from '../openapi/index.js'
+import type {FastifyPluginAsync} from 'fastify';
+import {WorkflowRunResponse} from '../openapi/index.js';
 
 interface ListWorkflowRunsQuery {
   /** @description Branch ID */
-  branch_id?: string
-  limit?: number
-  offset?: number
+  branch_id?: string;
+  limit?: number;
+  offset?: number;
   /** @description Project ref */
-  project_ref?: string
+  project_ref?: string;
 }
 
 interface CountWorkflowRunsQuery {
   /** @description Branch ID */
-  branch_id?: string
+  branch_id?: string;
   /** @description Project ref */
-  project_ref?: string
+  project_ref?: string;
 }
 
 async function getWorkflowRunLogs(workflowRunId: string): Promise<string> {
-  return ''
+  return '';
 }
 
-async function countWorkflowRuns(query: CountWorkflowRunsQuery): Promise<number> {
-  return 0
+async function countWorkflowRuns(
+  query: CountWorkflowRunsQuery,
+): Promise<number> {
+  return 0;
 }
 
-async function listWorkflowRuns(query: ListWorkflowRunsQuery): Promise<WorkflowRunResponse> {
-  return [] as WorkflowRunResponse
+async function listWorkflowRuns(
+  query: ListWorkflowRunsQuery,
+): Promise<WorkflowRunResponse> {
+  return [] as WorkflowRunResponse;
 }
 
-const workflowRunsRoutes: FastifyPluginAsync = async (app) => {
-  app.head<{ Querystring: CountWorkflowRunsQuery }>(
+const workflowRunsRoutes: FastifyPluginAsync = async app => {
+  app.head<{Querystring: CountWorkflowRunsQuery}>(
     '/',
     {
       schema: {
@@ -63,13 +67,13 @@ const workflowRunsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const total = await countWorkflowRuns(request.query)
-      reply.header('X-Total-Count', total)
-      return reply.send()
-    }
-  )
+      const total = await countWorkflowRuns(request.query);
+      reply.header('X-Total-Count', total);
+      return reply.send();
+    },
+  );
 
-  app.get<{ Querystring: ListWorkflowRunsQuery }>(
+  app.get<{Querystring: ListWorkflowRunsQuery}>(
     '/',
     {
       schema: {
@@ -109,12 +113,12 @@ const workflowRunsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const runs = await listWorkflowRuns(request.query)
-      return reply.send(runs)
-    }
-  )
+      const runs = await listWorkflowRuns(request.query);
+      return reply.send(runs);
+    },
+  );
 
-  app.get<{ Params: { workflow_run_id: string } }>(
+  app.get<{Params: {workflow_run_id: string}}>(
     '/:workflow_run_id/logs',
     {
       schema: {
@@ -144,11 +148,11 @@ const workflowRunsRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const logs = await getWorkflowRunLogs(request.params.workflow_run_id)
-      reply.type('text/plain')
-      return reply.send(logs)
-    }
-  )
-}
+      const logs = await getWorkflowRunLogs(request.params.workflow_run_id);
+      reply.type('text/plain');
+      return reply.send(logs);
+    },
+  );
+};
 
-export default workflowRunsRoutes
+export default workflowRunsRoutes;

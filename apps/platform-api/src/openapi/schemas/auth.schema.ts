@@ -1,9 +1,9 @@
-import { z } from 'zod'
-import { zodToJsonSchema } from '../utils/zod-to-json-schema.js'
+import {z} from 'zod';
+import {zodToJsonSchema} from '../utils/zod-to-json-schema.js';
 
 export const UpdateEmailBodySchema = z.object({
   newEmail: z.string().email(),
-})
+});
 
 // --- Define enums for fields with restricted values ---
 const PasswordRequiredCharactersEnum = z.enum([
@@ -11,11 +11,17 @@ const PasswordRequiredCharactersEnum = z.enum([
   'abcdefghijklmnopqrstuvwxyz:ABCDEFGHIJKLMNOPQRSTUVWXYZ:0123456789',
   'abcdefghijklmnopqrstuvwxyz:ABCDEFGHIJKLMNOPQRSTUVWXYZ:0123456789:!@#$%^&*()_+-=[]{};\'\\:"|<>?,./`~',
   '',
-])
+]);
 
-const CaptchaProviderEnum = z.enum(['turnstile', 'hcaptcha'])
+const CaptchaProviderEnum = z.enum(['turnstile', 'hcaptcha']);
 
-const SmsProviderEnum = z.enum(['messagebird', 'textlocal', 'twilio', 'twilio_verify', 'vonage'])
+const SmsProviderEnum = z.enum([
+  'messagebird',
+  'textlocal',
+  'twilio',
+  'twilio_verify',
+  'vonage',
+]);
 
 const CreateUserReponseSchema = z.object({
   aud: z.string().optional(),
@@ -55,7 +61,7 @@ const CreateUserReponseSchema = z.object({
   recovery_token: z.string().optional(),
   role: z.string().optional(),
   updated_at: z.string().optional(),
-})
+});
 
 // --- Start from your existing AuthConfigResponseSchema, but enhance enum fields ---
 const AuthConfigResponseSchema = z.object({
@@ -281,7 +287,7 @@ const AuthConfigResponseSchema = z.object({
   SMTP_SENDER_NAME: z.string(),
   SMTP_USER: z.string(),
   URI_ALLOW_LIST: z.string(),
-})
+});
 
 // --- Create Update Schema: all fields optional + nullable ---
 const UpdateAuthConfigBodySchema = z.object(
@@ -289,9 +295,9 @@ const UpdateAuthConfigBodySchema = z.object(
     Object.entries(AuthConfigResponseSchema.shape).map(([key, schema]) => [
       key,
       (schema as z.ZodTypeAny).optional().nullable(),
-    ])
-  )
-)
+    ]),
+  ),
+);
 
 const UpdateUserReponseSchema = z.object({
   aud: z.string().optional(),
@@ -331,12 +337,12 @@ const UpdateUserReponseSchema = z.object({
   recovery_token: z.string().optional(),
   role: z.string().optional(),
   updated_at: z.string().optional(),
-})
+});
 
 const ValidateSpamBodySchema = z.object({
   content: z.string(),
   subject: z.string(),
-})
+});
 
 const ValidateSpamResponseSchema = z.object({
   rules: z.array(
@@ -344,19 +350,19 @@ const ValidateSpamResponseSchema = z.object({
       desc: z.string(),
       name: z.string(),
       score: z.number(),
-    })
+    }),
   ),
-})
+});
 
 const UpdateUserBodySchema = z.object({
   ban_duration: z.string().optional(),
-})
+});
 
 const CreateUserBodySchema = z.object({
   email: z.string(),
   email_confirm: z.boolean(),
   password: z.string(),
-})
+});
 
 const UserBodySchema = z.object({
   aud: z.string().optional(),
@@ -396,7 +402,7 @@ const UserBodySchema = z.object({
   recovery_token: z.string().optional(),
   role: z.string().optional(),
   updated_at: z.string().optional(),
-})
+});
 
 const UpdateAuthConfigHooksBodySchema = z.object({
   HOOK_AFTER_USER_CREATED_ENABLED: z.boolean().nullable().optional(),
@@ -420,93 +426,122 @@ const UpdateAuthConfigHooksBodySchema = z.object({
   HOOK_SEND_SMS_ENABLED: z.boolean().nullable().optional(),
   HOOK_SEND_SMS_SECRETS: z.string().nullable().optional(),
   HOOK_SEND_SMS_URI: z.string().nullable().optional(),
-})
+});
 
-export type UpdateAuthConfigBody = z.infer<typeof UpdateAuthConfigBodySchema>
+export type UpdateAuthConfigBody = z.infer<typeof UpdateAuthConfigBodySchema>;
 
-export const UpdateAuthConfigBodyJsonSchema = zodToJsonSchema(UpdateAuthConfigBodySchema, {
-  name: 'UpdateAuthConfigBody',
-})
+export const UpdateAuthConfigBodyJsonSchema = zodToJsonSchema(
+  UpdateAuthConfigBodySchema,
+  {
+    name: 'UpdateAuthConfigBody',
+  },
+);
 
-export type AuthConfigResponse = z.infer<typeof AuthConfigResponseSchema>
+export type AuthConfigResponse = z.infer<typeof AuthConfigResponseSchema>;
 
-export const AuthConfigResponseJsonSchema = zodToJsonSchema(AuthConfigResponseSchema, {
-  name: 'AuthConfigResponse',
-})
+export const AuthConfigResponseJsonSchema = zodToJsonSchema(
+  AuthConfigResponseSchema,
+  {
+    name: 'AuthConfigResponse',
+  },
+);
 
-export type UpdateAuthConfigHooksBody = z.infer<typeof UpdateAuthConfigHooksBodySchema>
+export type UpdateAuthConfigHooksBody = z.infer<
+  typeof UpdateAuthConfigHooksBodySchema
+>;
 
-export const UpdateAuthConfigHooksJsonSchema = zodToJsonSchema(UpdateAuthConfigHooksBodySchema, {
-  name: 'UpdateAuthConfigHooksBody',
-})
+export const UpdateAuthConfigHooksJsonSchema = zodToJsonSchema(
+  UpdateAuthConfigHooksBodySchema,
+  {
+    name: 'UpdateAuthConfigHooksBody',
+  },
+);
 
-export type UserBody = z.infer<typeof UserBodySchema>
+export type UserBody = z.infer<typeof UserBodySchema>;
 
 export const UserBodyJsonSchema = zodToJsonSchema(UserBodySchema, {
   name: 'UserBody',
-})
+});
 
-export type CreateUserBody = z.infer<typeof CreateUserBodySchema>
+export type CreateUserBody = z.infer<typeof CreateUserBodySchema>;
 
 export const CreateUserBodyJsonSchema = zodToJsonSchema(CreateUserBodySchema, {
   name: 'CreateUserBody',
-})
+});
 
-export type CreateUserReponse = z.infer<typeof CreateUserReponseSchema>
+export type CreateUserReponse = z.infer<typeof CreateUserReponseSchema>;
 
-export const CreateUserReponseJsonSchema = zodToJsonSchema(CreateUserReponseSchema, {
-  name: 'CreateUserReponse',
-})
+export const CreateUserReponseJsonSchema = zodToJsonSchema(
+  CreateUserReponseSchema,
+  {
+    name: 'CreateUserReponse',
+  },
+);
 
-export type UpdateUserBody = z.infer<typeof UpdateUserBodySchema>
+export type UpdateUserBody = z.infer<typeof UpdateUserBodySchema>;
 
 export const UpdateUserBodyJsonSchema = zodToJsonSchema(UpdateUserBodySchema, {
   name: 'UpdateUserBody',
-})
+});
 
-export type UpdateUserReponse = z.infer<typeof UpdateUserReponseSchema>
+export type UpdateUserReponse = z.infer<typeof UpdateUserReponseSchema>;
 
-export const UpdateUserReponseJsonSchema = zodToJsonSchema(UpdateUserReponseSchema, {
-  name: 'UpdateUserReponse',
-})
+export const UpdateUserReponseJsonSchema = zodToJsonSchema(
+  UpdateUserReponseSchema,
+  {
+    name: 'UpdateUserReponse',
+  },
+);
 
-export type ValidateSpamBody = z.infer<typeof ValidateSpamBodySchema>
+export type ValidateSpamBody = z.infer<typeof ValidateSpamBodySchema>;
 
-export const ValidateSpamBodyJsonSchema = zodToJsonSchema(ValidateSpamBodySchema, {
-  name: 'ValidateSpamBody',
-})
+export const ValidateSpamBodyJsonSchema = zodToJsonSchema(
+  ValidateSpamBodySchema,
+  {
+    name: 'ValidateSpamBody',
+  },
+);
 
-export type ValidateSpamResponse = z.infer<typeof ValidateSpamResponseSchema>
+export type ValidateSpamResponse = z.infer<typeof ValidateSpamResponseSchema>;
 
-export const ValidateSpamResponseJsonSchema = zodToJsonSchema(ValidateSpamResponseSchema, {
-  name: 'ValidateSpamResponse',
-})
+export const ValidateSpamResponseJsonSchema = zodToJsonSchema(
+  ValidateSpamResponseSchema,
+  {
+    name: 'ValidateSpamResponse',
+  },
+);
 
-export type UpdateEmailBody = z.infer<typeof UpdateEmailBodySchema>
-export const UpdateEmailBodyJsonSchema = zodToJsonSchema(UpdateEmailBodySchema, {
-  name: 'UpdateEmailBody',
-})
+export type UpdateEmailBody = z.infer<typeof UpdateEmailBodySchema>;
+export const UpdateEmailBodyJsonSchema = zodToJsonSchema(
+  UpdateEmailBodySchema,
+  {
+    name: 'UpdateEmailBody',
+  },
+);
 
 export const SignUpBodySchema = z.object({
   email: z.string().email(),
   password: z.string(),
   redirectTo: z.string().url().optional(),
-})
+});
 
-export type SignUpBody = z.infer<typeof SignUpBodySchema>
+export type SignUpBody = z.infer<typeof SignUpBodySchema>;
 
 export const SignUpBodyJsonSchema = zodToJsonSchema(SignUpBodySchema, {
   name: 'SignUpBody',
-})
+});
 
 // Reset Password
 export const ResetPasswordBodySchema = z.object({
   email: z.string().email(),
   redirectTo: z.string().url().optional(),
-})
+});
 
-export type ResetPasswordBody = z.infer<typeof ResetPasswordBodySchema>
+export type ResetPasswordBody = z.infer<typeof ResetPasswordBodySchema>;
 
-export const ResetPasswordBodyJsonSchema = zodToJsonSchema(ResetPasswordBodySchema, {
-  name: 'ResetPasswordBody',
-})
+export const ResetPasswordBodyJsonSchema = zodToJsonSchema(
+  ResetPasswordBodySchema,
+  {
+    name: 'ResetPasswordBody',
+  },
+);

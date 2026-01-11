@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from 'fastify'
+import type {FastifyPluginAsync} from 'fastify';
 import {
   CreateDestinationPipelineResponse,
   CreateDestinationResponse,
@@ -26,221 +26,237 @@ import {
   UpdateReplicationPipelineBody,
   UpdateReplicationPipelineVersionBody,
   UpdateReplicationPublicationBody,
-} from '../openapi/index.js'
+} from '../openapi/index.js';
 
 interface RefIdParams {
-  ref: string
-  id: string
+  ref: string;
+  id: string;
 }
 
 interface RefPipelineIdParams {
-  ref: string
-  pipeline_id: string
+  ref: string;
+  pipeline_id: string;
 }
 
 interface RefDestinationIdParams {
-  ref: string
-  destination_id: string
+  ref: string;
+  destination_id: string;
 }
 
 interface RefDestinationIdPipelineIdParams {
-  ref: string
-  destination_id: string
-  pipeline_id: string
+  ref: string;
+  destination_id: string;
+  pipeline_id: string;
 }
 
 interface RefSourceIdPublicationNameParams {
-  ref: string
-  source_id: string
-  publication_name: string
+  ref: string;
+  source_id: string;
+  publication_name: string;
 }
 
 interface RefSourceIdParams {
-  ref: string
-  source_id: string
+  ref: string;
+  source_id: string;
 }
 
-export const getDestinations = async (ref: string): Promise<ReplicationDestinationsResponse> => {
+export const getDestinations = async (
+  ref: string,
+): Promise<ReplicationDestinationsResponse> => {
   // TODO: fetch all destinations for the project
-  return {} as ReplicationDestinationsResponse
-}
+  return {} as ReplicationDestinationsResponse;
+};
 
 export const createDestination = async (
   ref: string,
-  body: CreateReplicationDestinationBody
+  body: CreateReplicationDestinationBody,
 ): Promise<CreateDestinationResponse> => {
   // TODO: create a new destination for the project
-  return {} as CreateDestinationResponse
-}
+  return {} as CreateDestinationResponse;
+};
 
 export const createDestinationPipeline = async (
   ref: string,
-  body: CreateReplicationDestinationPipelineBody
+  body: CreateReplicationDestinationPipelineBody,
 ): Promise<CreateDestinationPipelineResponse> => {
   // TODO
-  return {} as CreateDestinationPipelineResponse
-}
+  return {} as CreateDestinationPipelineResponse;
+};
 
 export const updateDestinationPipeline = async (
   params: RefDestinationIdPipelineIdParams,
-  body: UpdateReplicationDestinationPipelineBody
+  body: UpdateReplicationDestinationPipelineBody,
 ): Promise<void> => {
   // TODO
-}
+};
 
 export const deleteDestinationPipeline = async (
-  params: RefDestinationIdPipelineIdParams
+  params: RefDestinationIdPipelineIdParams,
 ): Promise<void> => {
   // TODO
-}
+};
 
 export const getReplicationDestination = async (
-  params: RefDestinationIdParams
+  params: RefDestinationIdParams,
 ): Promise<ReplicationDestinationResponse> => {
   // TODO
-  return {} as ReplicationDestinationResponse
-}
+  return {} as ReplicationDestinationResponse;
+};
 
 export const updateReplicationDestination = async (
   params: RefDestinationIdParams,
-  body: UpdateReplicationDestinationBody
+  body: UpdateReplicationDestinationBody,
 ) => {
   // TODO
-}
+};
 
-export const deleteReplicationDestination = async (params: RefDestinationIdParams) => {
+export const deleteReplicationDestination = async (
+  params: RefDestinationIdParams,
+) => {
   // TODO
-}
+};
 
 export const createReplicationPipeline = async (
   ref: string,
-  body: CreateReplicationPipelineBody
+  body: CreateReplicationPipelineBody,
 ): Promise<CreatePipelineResponse> => {
   // TODO
-  return {} as CreatePipelineResponse
-}
+  return {} as CreatePipelineResponse;
+};
 
 export const getReplicationPipelines = async (
-  ref: string
+  ref: string,
 ): Promise<ReplicationPipelinesResponse> => {
   // TODO
-  return {} as ReplicationPipelinesResponse
-}
+  return {} as ReplicationPipelinesResponse;
+};
 
 export const getPipelineReplicationStatus = async (
-  params: RefPipelineIdParams
+  params: RefPipelineIdParams,
 ): Promise<ReplicationPipelineReplicationStatusResponse> => {
   // TODO
-  return {} as ReplicationPipelineReplicationStatusResponse
-}
+  return {} as ReplicationPipelineReplicationStatusResponse;
+};
 
-export const deleteReplicationPipeline = async (params: RefPipelineIdParams): Promise<void> => {
+export const deleteReplicationPipeline = async (
+  params: RefPipelineIdParams,
+): Promise<void> => {
   // TODO
-}
+};
 
 export const updateReplicationPipeline = async (
   params: RefPipelineIdParams,
-  body: UpdateReplicationPipelineBody
+  body: UpdateReplicationPipelineBody,
 ): Promise<void> => {
   // TODO
-}
+};
 
 export const getReplicationPipeline = async (
-  params: RefPipelineIdParams
+  params: RefPipelineIdParams,
 ): Promise<ReplicationPipelineResponse> => {
   // TODO
-  return {} as ReplicationPipelineResponse
-}
+  return {} as ReplicationPipelineResponse;
+};
 
 export const rollbackReplicationTableState = async (
   params: RefPipelineIdParams,
-  body: RollbackTableStateBody
+  body: RollbackTableStateBody,
 ): Promise<RollbackTableStateResponse> => {
   // TODO
-  return {} as RollbackTableStateResponse
-}
+  return {} as RollbackTableStateResponse;
+};
 
-export const startReplicationPipeline = async (params: RefPipelineIdParams): Promise<void> => {
+export const startReplicationPipeline = async (
+  params: RefPipelineIdParams,
+): Promise<void> => {
   // TODO
-}
+};
 
-export const stopReplicationPipeline = async (params: RefPipelineIdParams): Promise<void> => {
+export const stopReplicationPipeline = async (
+  params: RefPipelineIdParams,
+): Promise<void> => {
   // TODO
-}
+};
 
 export const getReplicationPipelineStatus = async (
-  params: RefPipelineIdParams
+  params: RefPipelineIdParams,
 ): Promise<ReplicationPipelineStatusResponse> => {
   // TODO
-  return {} as ReplicationPipelineStatusResponse
-}
+  return {} as ReplicationPipelineStatusResponse;
+};
 
 export const updateReplicationPipelineVersion = async (
   params: RefPipelineIdParams,
-  body: UpdateReplicationPipelineVersionBody
+  body: UpdateReplicationPipelineVersionBody,
 ): Promise<void> => {
   // TODO
-}
+};
 
 export const getReplicationPipelineVersion = async (
-  params: RefPipelineIdParams
+  params: RefPipelineIdParams,
 ): Promise<ReplicationPipelineVersionResponse> => {
   // TODO
-  return {} as ReplicationPipelineVersionResponse
-}
+  return {} as ReplicationPipelineVersionResponse;
+};
 
-export const createReplicationSource = async (ref: string): Promise<CreateSourceResponse> => {
+export const createReplicationSource = async (
+  ref: string,
+): Promise<CreateSourceResponse> => {
   // TODO
-  return {} as CreateSourceResponse
-}
+  return {} as CreateSourceResponse;
+};
 
-export const getReplicationSources = async (ref: string): Promise<ReplicationSourcesResponse> => {
+export const getReplicationSources = async (
+  ref: string,
+): Promise<ReplicationSourcesResponse> => {
   // TODO
-  return {} as ReplicationSourcesResponse
-}
+  return {} as ReplicationSourcesResponse;
+};
 
 export const createReplicationPublication = async (
   params: RefSourceIdParams,
-  body: CreateReplicationPublicationBody
+  body: CreateReplicationPublicationBody,
 ): Promise<void> => {
   // TODO
-}
+};
 
 export const getReplicationPublications = async (
-  params: RefSourceIdParams
+  params: RefSourceIdParams,
 ): Promise<ReplicationPublicationsResponse> => {
   // TODO
-  return {} as ReplicationPublicationsResponse
-}
+  return {} as ReplicationPublicationsResponse;
+};
 
 export const deleteReplicationPublication = async (
-  params: RefSourceIdPublicationNameParams
+  params: RefSourceIdPublicationNameParams,
 ): Promise<void> => {
   // TODO
-}
+};
 
 export const updateReplicationPublication = async (
   params: RefSourceIdPublicationNameParams,
-  body: UpdateReplicationPublicationBody
+  body: UpdateReplicationPublicationBody,
 ): Promise<void> => {
   // TODO
-}
+};
 
-export const createTenantSource = async (ref: string): Promise<CreateTenantSourceResponse> => {
+export const createTenantSource = async (
+  ref: string,
+): Promise<CreateTenantSourceResponse> => {
   // TODO:
-  return {} as CreateTenantSourceResponse
-}
+  return {} as CreateTenantSourceResponse;
+};
 
 export const getReplicationTables = async (
-  params: RefIdParams
+  params: RefIdParams,
 ): Promise<ReplicationTablesResponse> => {
   // TODO:
-  return {} as ReplicationTablesResponse
-}
+  return {} as ReplicationTablesResponse;
+};
 
-const replicationRoutes: FastifyPluginAsync = async (app) => {
+const replicationRoutes: FastifyPluginAsync = async app => {
   app.get<{
-    Params: { ref: string }
+    Params: {ref: string};
   }>(
     '/:ref/destinations',
     {
@@ -250,27 +266,30 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         operationId: 'ReplicationDestinationsController_getDestinations',
         params: {
           type: 'object',
-          properties: { ref: { type: 'string' } },
+          properties: {ref: {type: 'string'}},
           required: ['ref'],
         },
         response: {
-          200: { $ref: 'ReplicationDestinationsResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Unexpected error while listing destinations', type: 'null' },
+          200: {$ref: 'ReplicationDestinationsResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Unexpected error while listing destinations',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const destinations = await getDestinations(request.params.ref)
-      return reply.send(destinations)
-    }
-  )
+      const destinations = await getDestinations(request.params.ref);
+      return reply.send(destinations);
+    },
+  );
 
   app.post<{
-    Params: { ref: string }
-    Body: CreateReplicationDestinationBody
+    Params: {ref: string};
+    Body: CreateReplicationDestinationBody;
   }>(
     '/:ref/destinations',
     {
@@ -280,134 +299,146 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         operationId: 'ReplicationDestinationsController_createDestination',
         params: {
           type: 'object',
-          properties: { ref: { type: 'string' } },
+          properties: {ref: {type: 'string'}},
           required: ['ref'],
         },
-        body: { $ref: 'CreateReplicationDestinationBody' },
+        body: {$ref: 'CreateReplicationDestinationBody'},
         response: {
-          200: { $ref: 'CreateDestinationResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Unexpected error while creating destination', type: 'null' },
+          200: {$ref: 'CreateDestinationResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Unexpected error while creating destination',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const result = await createDestination(request.params.ref, request.body)
-      return reply.send(result)
-    }
-  )
+      const result = await createDestination(request.params.ref, request.body);
+      return reply.send(result);
+    },
+  );
 
   app.post<{
-    Params: { ref: string }
-    Body: CreateReplicationDestinationPipelineBody
+    Params: {ref: string};
+    Body: CreateReplicationDestinationPipelineBody;
   }>(
     '/:ref/destinations-pipelines',
     {
       schema: {
         description: 'Create a destination and pipeline in one call.',
         tags: ['Replication'],
-        operationId: 'ReplicationDestinationsPipelinesController_createDestinationPipeline',
+        operationId:
+          'ReplicationDestinationsPipelinesController_createDestinationPipeline',
         params: {
           type: 'object',
-          properties: { ref: { type: 'string' } },
+          properties: {ref: {type: 'string'}},
           required: ['ref'],
         },
-        body: { $ref: 'CreateReplicationDestinationPipelineBody' },
+        body: {$ref: 'CreateReplicationDestinationPipelineBody'},
         response: {
-          200: { $ref: 'CreateDestinationPipelineResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {$ref: 'CreateDestinationPipelineResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
-            description: 'Unexpected error while creating destination or pipeline',
+            description:
+              'Unexpected error while creating destination or pipeline',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      const result = await createDestinationPipeline(request.params.ref, request.body)
-      return reply.send(result)
-    }
-  )
+      const result = await createDestinationPipeline(
+        request.params.ref,
+        request.body,
+      );
+      return reply.send(result);
+    },
+  );
 
   app.post<{
-    Params: RefDestinationIdPipelineIdParams
-    Body: UpdateReplicationDestinationPipelineBody
+    Params: RefDestinationIdPipelineIdParams;
+    Body: UpdateReplicationDestinationPipelineBody;
   }>(
     '/:ref/destinations-pipelines/:destination_id/:pipeline_id',
     {
       schema: {
         description: 'Update a destination and pipeline in one call.',
         tags: ['Replication'],
-        operationId: 'ReplicationDestinationsPipelinesController_updateDestinationPipeline',
+        operationId:
+          'ReplicationDestinationsPipelinesController_updateDestinationPipeline',
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string' },
-            destination_id: { type: 'number' },
-            pipeline_id: { type: 'number' },
+            ref: {type: 'string'},
+            destination_id: {type: 'number'},
+            pipeline_id: {type: 'number'},
           },
           required: ['ref', 'destination_id', 'pipeline_id'],
         },
-        body: { $ref: 'UpdateReplicationDestinationPipelineBody' },
+        body: {$ref: 'UpdateReplicationDestinationPipelineBody'},
         response: {
-          200: { description: 'Destination and pipeline updated', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {description: 'Destination and pipeline updated', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
-            description: 'Unexpected error while updating destination or pipeline',
+            description:
+              'Unexpected error while updating destination or pipeline',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      await updateDestinationPipeline(request.params, request.body)
-      return reply.status(200).send()
-    }
-  )
+      await updateDestinationPipeline(request.params, request.body);
+      return reply.status(200).send();
+    },
+  );
 
   app.delete<{
-    Params: RefDestinationIdPipelineIdParams
+    Params: RefDestinationIdPipelineIdParams;
   }>(
     '/:ref/destinations-pipelines/:destination_id/:pipeline_id',
     {
       schema: {
         description: 'Delete a destination and pipeline.',
         tags: ['Replication'],
-        operationId: 'ReplicationDestinationsPipelinesController_deleteDestinationPipeline',
+        operationId:
+          'ReplicationDestinationsPipelinesController_deleteDestinationPipeline',
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string' },
-            destination_id: { type: 'number' },
-            pipeline_id: { type: 'number' },
+            ref: {type: 'string'},
+            destination_id: {type: 'number'},
+            pipeline_id: {type: 'number'},
           },
           required: ['ref', 'destination_id', 'pipeline_id'],
         },
         response: {
-          200: { description: 'Destination and pipeline deleted', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {description: 'Destination and pipeline deleted', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
-            description: 'Unexpected error while deleting destination or pipeline',
+            description:
+              'Unexpected error while deleting destination or pipeline',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      await deleteDestinationPipeline(request.params)
-      return reply.status(200).send()
-    }
-  )
+      await deleteDestinationPipeline(request.params);
+      return reply.status(200).send();
+    },
+  );
 
-  app.get<{ Params: RefDestinationIdParams }>(
+  app.get<{Params: RefDestinationIdParams}>(
     '/:ref/destinations/:destination_id',
     {
       schema: {
@@ -417,29 +448,32 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string' },
-            destination_id: { type: 'number' },
+            ref: {type: 'string'},
+            destination_id: {type: 'number'},
           },
           required: ['ref', 'destination_id'],
         },
         response: {
-          200: { $ref: 'ReplicationDestinationResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Unexpected error while retrieving destination', type: 'null' },
+          200: {$ref: 'ReplicationDestinationResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Unexpected error while retrieving destination',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const destination = await getReplicationDestination(request.params)
-      return reply.send(destination)
-    }
-  )
+      const destination = await getReplicationDestination(request.params);
+      return reply.send(destination);
+    },
+  );
 
   app.post<{
-    Params: RefDestinationIdParams
-    Body: UpdateReplicationDestinationBody
+    Params: RefDestinationIdParams;
+    Body: UpdateReplicationDestinationBody;
   }>(
     '/:ref/destinations/:destination_id',
     {
@@ -450,28 +484,31 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string' },
-            destination_id: { type: 'number' },
+            ref: {type: 'string'},
+            destination_id: {type: 'number'},
           },
           required: ['ref', 'destination_id'],
         },
-        body: { $ref: 'UpdateReplicationDestinationBody' },
+        body: {$ref: 'UpdateReplicationDestinationBody'},
         response: {
-          200: { description: 'Destination updated', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Unexpected error while updating destination', type: 'null' },
+          200: {description: 'Destination updated', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Unexpected error while updating destination',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await updateReplicationDestination(request.params, request.body)
-      return reply.status(200).send()
-    }
-  )
+      await updateReplicationDestination(request.params, request.body);
+      return reply.status(200).send();
+    },
+  );
 
-  app.delete<{ Params: RefDestinationIdParams }>(
+  app.delete<{Params: RefDestinationIdParams}>(
     '/:ref/destinations/:destination_id',
     {
       schema: {
@@ -481,27 +518,30 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string' },
-            destination_id: { type: 'number' },
+            ref: {type: 'string'},
+            destination_id: {type: 'number'},
           },
           required: ['ref', 'destination_id'],
         },
         response: {
-          200: { description: 'Destination deleted', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Unexpected error while deleting destination', type: 'null' },
+          200: {description: 'Destination deleted', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Unexpected error while deleting destination',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await deleteReplicationDestination(request.params)
-      return reply.status(200).send()
-    }
-  )
+      await deleteReplicationDestination(request.params);
+      return reply.status(200).send();
+    },
+  );
 
-  app.get<{ Params: { ref: string } }>(
+  app.get<{Params: {ref: string}}>(
     '/:ref/pipelines',
     {
       schema: {
@@ -511,7 +551,7 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string', description: 'Project ref' },
+            ref: {type: 'string', description: 'Project ref'},
           },
           required: ['ref'],
         },
@@ -519,9 +559,9 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
           200: {
             $ref: 'ReplicationPipelinesResponse',
           },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
             description: 'Unexpected error while listing pipelines.',
             type: 'null',
@@ -530,14 +570,14 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const pipelines = await getReplicationPipelines(request.params.ref)
-      return reply.send(pipelines)
-    }
-  )
+      const pipelines = await getReplicationPipelines(request.params.ref);
+      return reply.send(pipelines);
+    },
+  );
 
   app.post<{
-    Params: { ref: string }
-    Body: CreateReplicationPipelineBody
+    Params: {ref: string};
+    Body: CreateReplicationPipelineBody;
   }>(
     '/:ref/pipelines',
     {
@@ -548,7 +588,7 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string', description: 'Project ref' },
+            ref: {type: 'string', description: 'Project ref'},
           },
           required: ['ref'],
         },
@@ -559,9 +599,9 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
           200: {
             $ref: 'CreatePipelineResponse',
           },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
             description: 'Unexpected error while creating pipeline.',
             type: 'null',
@@ -570,12 +610,15 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const result = await createReplicationPipeline(request.params.ref, request.body)
-      return reply.send(result)
-    }
-  )
+      const result = await createReplicationPipeline(
+        request.params.ref,
+        request.body,
+      );
+      return reply.send(result);
+    },
+  );
 
-  app.get<{ Params: RefPipelineIdParams }>(
+  app.get<{Params: RefPipelineIdParams}>(
     '/:ref/pipelines/:pipeline_id',
     {
       schema: {
@@ -585,8 +628,8 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string', description: 'Project ref' },
-            pipeline_id: { type: 'number', description: 'Pipeline id' },
+            ref: {type: 'string', description: 'Project ref'},
+            pipeline_id: {type: 'number', description: 'Pipeline id'},
           },
           required: ['ref', 'pipeline_id'],
         },
@@ -594,9 +637,9 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
           200: {
             $ref: 'ReplicationPipelineResponse',
           },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
             description: 'Unexpected error while retrieving pipeline.',
             type: 'null',
@@ -605,14 +648,14 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const pipeline = await getReplicationPipeline(request.params)
-      return reply.send(pipeline)
-    }
-  )
+      const pipeline = await getReplicationPipeline(request.params);
+      return reply.send(pipeline);
+    },
+  );
 
   app.post<{
-    Params: RefPipelineIdParams
-    Body: UpdateReplicationPipelineBody
+    Params: RefPipelineIdParams;
+    Body: UpdateReplicationPipelineBody;
   }>(
     '/:ref/pipelines/:pipeline_id',
     {
@@ -623,8 +666,8 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string', description: 'Project ref' },
-            pipeline_id: { type: 'number', description: 'Pipeline id' },
+            ref: {type: 'string', description: 'Project ref'},
+            pipeline_id: {type: 'number', description: 'Pipeline id'},
           },
           required: ['ref', 'pipeline_id'],
         },
@@ -632,10 +675,10 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
           $ref: 'UpdateReplicationPipelineBody',
         },
         response: {
-          200: { description: 'Pipeline updated.', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {description: 'Pipeline updated.', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
             description: 'Unexpected error while updating pipeline.',
             type: 'null',
@@ -644,12 +687,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await updateReplicationPipeline(request.params, request.body)
-      return reply.send()
-    }
-  )
+      await updateReplicationPipeline(request.params, request.body);
+      return reply.send();
+    },
+  );
 
-  app.delete<{ Params: RefPipelineIdParams }>(
+  app.delete<{Params: RefPipelineIdParams}>(
     '/:ref/pipelines/:pipeline_id',
     {
       schema: {
@@ -659,16 +702,16 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string', description: 'Project ref' },
-            pipeline_id: { type: 'number', description: 'Pipeline id' },
+            ref: {type: 'string', description: 'Project ref'},
+            pipeline_id: {type: 'number', description: 'Pipeline id'},
           },
           required: ['ref', 'pipeline_id'],
         },
         response: {
-          200: { description: 'Pipeline deleted.', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {description: 'Pipeline deleted.', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
             description: 'Unexpected error while deleting pipeline.',
             type: 'null',
@@ -677,23 +720,24 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await deleteReplicationPipeline(request.params)
-      return reply.send()
-    }
-  )
+      await deleteReplicationPipeline(request.params);
+      return reply.send();
+    },
+  );
 
-  app.get<{ Params: RefPipelineIdParams }>(
+  app.get<{Params: RefPipelineIdParams}>(
     '/:ref/pipelines/:pipeline_id/replication-status',
     {
       schema: {
         description: 'Get the pipeline replication status.',
         tags: ['Replication'],
-        operationId: 'ReplicationPipelinesController_getPipelineReplicationStatus',
+        operationId:
+          'ReplicationPipelinesController_getPipelineReplicationStatus',
         params: {
           type: 'object',
           properties: {
-            ref: { type: 'string', description: 'Project ref' },
-            pipeline_id: { type: 'number', description: 'Pipeline id' },
+            ref: {type: 'string', description: 'Project ref'},
+            pipeline_id: {type: 'number', description: 'Pipeline id'},
           },
           required: ['ref', 'pipeline_id'],
         },
@@ -701,25 +745,26 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
           200: {
             $ref: 'ReplicationPipelineReplicationStatusResponse',
           },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
           500: {
-            description: 'Unexpected error while retrieving replication status.',
+            description:
+              'Unexpected error while retrieving replication status.',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      const status = await getPipelineReplicationStatus(request.params)
-      return reply.send(status)
-    }
-  )
+      const status = await getPipelineReplicationStatus(request.params);
+      return reply.send(status);
+    },
+  );
 
   app.post<{
-    Params: RefPipelineIdParams
-    Body: RollbackTableStateBody
+    Params: RefPipelineIdParams;
+    Body: RollbackTableStateBody;
   }>(
     '/:ref/pipelines/:pipeline_id/rollback-table-state',
     {
@@ -768,12 +813,15 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const result = await rollbackReplicationTableState(request.params, request.body)
-      return reply.send(result)
-    }
-  )
+      const result = await rollbackReplicationTableState(
+        request.params,
+        request.body,
+      );
+      return reply.send(result);
+    },
+  );
 
-  app.post<{ Params: RefPipelineIdParams }>(
+  app.post<{Params: RefPipelineIdParams}>(
     '/:ref/pipelines/:pipeline_id/start',
     {
       schema: {
@@ -819,12 +867,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await startReplicationPipeline(request.params)
-      return reply.send()
-    }
-  )
+      await startReplicationPipeline(request.params);
+      return reply.send();
+    },
+  );
 
-  app.get<{ Params: RefPipelineIdParams }>(
+  app.get<{Params: RefPipelineIdParams}>(
     '/:ref/pipelines/:pipeline_id/status',
     {
       schema: {
@@ -869,12 +917,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const status = await getReplicationPipelineStatus(request.params)
-      return reply.send(status)
-    }
-  )
+      const status = await getReplicationPipelineStatus(request.params);
+      return reply.send(status);
+    },
+  );
 
-  app.post<{ Params: RefPipelineIdParams }>(
+  app.post<{Params: RefPipelineIdParams}>(
     '/:ref/pipelines/:pipeline_id/stop',
     {
       schema: {
@@ -920,12 +968,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await stopReplicationPipeline(request.params)
-      return reply.send()
-    }
-  )
+      await stopReplicationPipeline(request.params);
+      return reply.send();
+    },
+  );
 
-  app.get<{ Params: RefPipelineIdParams }>(
+  app.get<{Params: RefPipelineIdParams}>(
     '/:ref/pipelines/:pipeline_id/version',
     {
       schema: {
@@ -970,14 +1018,14 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const version = await getReplicationPipelineVersion(request.params)
-      return reply.send(version)
-    }
-  )
+      const version = await getReplicationPipelineVersion(request.params);
+      return reply.send(version);
+    },
+  );
 
   app.post<{
-    Params: RefPipelineIdParams
-    Body: UpdateReplicationPipelineVersionBody
+    Params: RefPipelineIdParams;
+    Body: UpdateReplicationPipelineVersionBody;
   }>(
     '/:ref/pipelines/:pipeline_id/version',
     {
@@ -1027,12 +1075,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await updateReplicationPipelineVersion(request.params, request.body)
-      return reply.send()
-    }
-  )
+      await updateReplicationPipelineVersion(request.params, request.body);
+      return reply.send();
+    },
+  );
 
-  app.get<{ Params: { ref: string } }>(
+  app.get<{Params: {ref: string}}>(
     '/:ref/sources',
     {
       schema: {
@@ -1073,12 +1121,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const sources = await getReplicationSources(request.params.ref)
-      return reply.send(sources)
-    }
-  )
+      const sources = await getReplicationSources(request.params.ref);
+      return reply.send(sources);
+    },
+  );
 
-  app.post<{ Params: { ref: string } }>(
+  app.post<{Params: {ref: string}}>(
     '/:ref/sources',
     {
       schema: {
@@ -1119,12 +1167,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const result = await createReplicationSource(request.params.ref)
-      return reply.send(result)
-    }
-  )
+      const result = await createReplicationSource(request.params.ref);
+      return reply.send(result);
+    },
+  );
 
-  app.get<{ Params: RefSourceIdParams }>(
+  app.get<{Params: RefSourceIdParams}>(
     '/:ref/sources/:source_id/publications',
     {
       schema: {
@@ -1169,14 +1217,14 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const publications = await getReplicationPublications(request.params)
-      return reply.send(publications)
-    }
-  )
+      const publications = await getReplicationPublications(request.params);
+      return reply.send(publications);
+    },
+  );
 
   app.post<{
-    Params: RefSourceIdParams
-    Body: CreateReplicationPublicationBody
+    Params: RefSourceIdParams;
+    Body: CreateReplicationPublicationBody;
   }>(
     '/:ref/sources/:source_id/publications',
     {
@@ -1226,14 +1274,14 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await createReplicationPublication(request.params, request.body)
-      return reply.send()
-    }
-  )
+      await createReplicationPublication(request.params, request.body);
+      return reply.send();
+    },
+  );
 
   app.post<{
-    Params: RefSourceIdPublicationNameParams
-    Body: UpdateReplicationPublicationBody
+    Params: RefSourceIdPublicationNameParams;
+    Body: UpdateReplicationPublicationBody;
   }>(
     '/:ref/sources/:source_id/publications/:publication_name',
     {
@@ -1287,13 +1335,13 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await updateReplicationPublication(request.params, request.body)
-      return reply.send()
-    }
-  )
+      await updateReplicationPublication(request.params, request.body);
+      return reply.send();
+    },
+  );
 
   app.delete<{
-    Params: RefSourceIdPublicationNameParams
+    Params: RefSourceIdPublicationNameParams;
   }>(
     '/:ref/sources/:source_id/publications/:publication_name',
     {
@@ -1344,12 +1392,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await deleteReplicationPublication(request.params)
-      return reply.send()
-    }
-  )
+      await deleteReplicationPublication(request.params);
+      return reply.send();
+    },
+  );
 
-  app.get<{ Params: RefIdParams }>(
+  app.get<{Params: RefIdParams}>(
     '/:ref/sources/:source_id/tables',
     {
       schema: {
@@ -1394,12 +1442,12 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const tables = await getReplicationTables(request.params)
-      return reply.send(tables)
-    }
-  )
+      const tables = await getReplicationTables(request.params);
+      return reply.send(tables);
+    },
+  );
 
-  app.post<{ Params: { ref: string } }>(
+  app.post<{Params: {ref: string}}>(
     '/:ref/tenants-sources',
     {
       schema: {
@@ -1440,10 +1488,10 @@ const replicationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const result = await createTenantSource(request.params.ref)
-      return reply.send(result)
-    }
-  )
-}
+      const result = await createTenantSource(request.params.ref);
+      return reply.send(result);
+    },
+  );
+};
 
-export default replicationRoutes
+export default replicationRoutes;

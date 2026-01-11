@@ -168,3 +168,6 @@ terraform.rc
 
 # Ignore .DS_Store
 .DS_Store
+
+**/dist/**
+**/output/**

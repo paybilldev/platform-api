@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { zodToJsonSchema } from '../utils/zod-to-json-schema.js'
+import {z} from 'zod';
+import {zodToJsonSchema} from '../utils/zod-to-json-schema.js';
 
 export const DisabledFeatureEnum = z.enum([
   'organizations:create',
@@ -17,7 +17,7 @@ export const DisabledFeatureEnum = z.enum([
   'billing:invoices',
   'billing:payment_methods',
   'realtime:all',
-])
+]);
 
 /* ---------------------------------- */
 /* Profile response                   */
@@ -36,20 +36,20 @@ export const ProfileResponseSchema = z.object({
   mobile: z.string(),
   primary_email: z.string().email(),
   username: z.string(),
-})
+});
 
 export const UpdateProfileBodySchema = z.object({
   first_name: z.string().optional(),
   last_name: z.string().optional(),
   primary_email: z.string().email().optional(),
   username: z.string().optional(),
-})
+});
 
 /* ---------------------------------- */
 /* Scope enum                         */
 /* ---------------------------------- */
 
-export const AccessTokenScopeEnum = z.enum(['V0'])
+export const AccessTokenScopeEnum = z.enum(['V0']);
 
 /* ---------------------------------- */
 /* Access token (list item)           */
@@ -63,19 +63,24 @@ export const AccessTokenSchema = z.object({
   created_at: z.string(),
   expires_at: z.string().nullable(),
   last_used_at: z.string().nullable(),
-})
+});
 
-export type AccessToken = z.infer<typeof AccessTokenSchema>
+export type AccessToken = z.infer<typeof AccessTokenSchema>;
 
-export const AccessTokenJsonSchema = zodToJsonSchema(AccessTokenSchema, { name: 'AccessToken' })
+export const AccessTokenJsonSchema = zodToJsonSchema(AccessTokenSchema, {
+  name: 'AccessToken',
+});
 
-export const AccessTokenListSchema = z.array(AccessTokenSchema)
+export const AccessTokenListSchema = z.array(AccessTokenSchema);
 
-export type AccessTokenList = z.infer<typeof AccessTokenListSchema>
+export type AccessTokenList = z.infer<typeof AccessTokenListSchema>;
 
-export const AccessTokenListJsonSchema = zodToJsonSchema(AccessTokenListSchema, {
-  name: 'AccessTokenList',
-})
+export const AccessTokenListJsonSchema = zodToJsonSchema(
+  AccessTokenListSchema,
+  {
+    name: 'AccessTokenList',
+  },
+);
 
 /* ---------------------------------- */
 /* Create access token body           */
@@ -85,13 +90,16 @@ export const CreateAccessTokenBodySchema = z.object({
   name: z.string(),
   expires_at: z.string().optional(), // date-time
   scope: AccessTokenScopeEnum.optional(),
-})
+});
 
-export type CreateAccessTokenBody = z.infer<typeof CreateAccessTokenBodySchema>
+export type CreateAccessTokenBody = z.infer<typeof CreateAccessTokenBodySchema>;
 
-export const CreateAccessTokenBodyJsonSchema = zodToJsonSchema(CreateAccessTokenBodySchema, {
-  name: 'CreateAccessTokenBody',
-})
+export const CreateAccessTokenBodyJsonSchema = zodToJsonSchema(
+  CreateAccessTokenBodySchema,
+  {
+    name: 'CreateAccessTokenBody',
+  },
+);
 
 /* ---------------------------------- */
 /* Create access token response       */
@@ -106,26 +114,34 @@ export const CreateAccessTokenResponseSchema = z.object({
   created_at: z.string(),
   expires_at: z.string().nullable(),
   last_used_at: z.string().nullable(),
-})
+});
 
-export type CreateAccessTokenResponse = z.infer<typeof CreateAccessTokenResponseSchema>
+export type CreateAccessTokenResponse = z.infer<
+  typeof CreateAccessTokenResponseSchema
+>;
 
 export const CreateAccessTokenResponseJsonSchema = zodToJsonSchema(
   CreateAccessTokenResponseSchema,
-  { name: 'CreateAccessTokenResponse' }
-)
+  {name: 'CreateAccessTokenResponse'},
+);
 
-export type ProfileResponse = z.infer<typeof ProfileResponseSchema>
+export type ProfileResponse = z.infer<typeof ProfileResponseSchema>;
 
-export const ProfileResponseJsonSchema = zodToJsonSchema(ProfileResponseSchema, {
-  name: 'ProfileResponse',
-})
+export const ProfileResponseJsonSchema = zodToJsonSchema(
+  ProfileResponseSchema,
+  {
+    name: 'ProfileResponse',
+  },
+);
 
-export type UpdateProfileBody = z.infer<typeof UpdateProfileBodySchema>
+export type UpdateProfileBody = z.infer<typeof UpdateProfileBodySchema>;
 
-export const UpdateProfileBodyJsonSchema = zodToJsonSchema(UpdateProfileBodySchema, {
-  name: 'UpdateProfileBody',
-})
+export const UpdateProfileBodyJsonSchema = zodToJsonSchema(
+  UpdateProfileBodySchema,
+  {
+    name: 'UpdateProfileBody',
+  },
+);
 
 /* ---------------------------------- */
 /* User audit logs response           */
@@ -134,13 +150,16 @@ export const UpdateProfileBodyJsonSchema = zodToJsonSchema(UpdateProfileBodySche
 export const UserAuditLogsResponseSchema = z.object({
   result: z.array(z.unknown()),
   retention_period: z.number(),
-})
+});
 
-export type UserAuditLogsResponse = z.infer<typeof UserAuditLogsResponseSchema>
+export type UserAuditLogsResponse = z.infer<typeof UserAuditLogsResponseSchema>;
 
-export const UserAuditLogsResponseJsonSchema = zodToJsonSchema(UserAuditLogsResponseSchema, {
-  name: 'UserAuditLogsResponse',
-})
+export const UserAuditLogsResponseJsonSchema = zodToJsonSchema(
+  UserAuditLogsResponseSchema,
+  {
+    name: 'UserAuditLogsResponse',
+  },
+);
 
 /* ---------------------------------- */
 /* Access control permission          */
@@ -150,7 +169,13 @@ export const AccessControlPermissionSchema = z.array(
   z.object({
     actions: z.array(z.string()).nullable(),
     condition: z
-      .union([z.string(), z.number(), z.boolean(), z.array(z.unknown()), z.record(z.unknown())])
+      .union([
+        z.string(),
+        z.number(),
+        z.boolean(),
+        z.array(z.unknown()),
+        z.record(z.unknown()),
+      ])
       .nullable(),
     organization_id: z.number().nullable(),
     organization_slug: z.string(),
@@ -158,14 +183,19 @@ export const AccessControlPermissionSchema = z.array(
     project_refs: z.array(z.string()).nullable(),
     resources: z.array(z.string()).nullable(),
     restrictive: z.boolean().nullable(),
-  })
-)
+  }),
+);
 
-export type AccessControlPermission = z.infer<typeof AccessControlPermissionSchema>
+export type AccessControlPermission = z.infer<
+  typeof AccessControlPermissionSchema
+>;
 
-export const AccessControlPermissionJsonSchema = zodToJsonSchema(AccessControlPermissionSchema, {
-  name: 'AccessControlPermission',
-})
+export const AccessControlPermissionJsonSchema = zodToJsonSchema(
+  AccessControlPermissionSchema,
+  {
+    name: 'AccessControlPermission',
+  },
+);
 
 /* ---------------------------------- */
 /* Permissions enum                   */
@@ -234,7 +264,7 @@ export const ScopedAccessTokenPermissionEnum = z.enum([
   'storage_config_write',
   'telemetry_logs_read',
   'telemetry_usage_read',
-])
+]);
 
 /* ---------------------------------- */
 /* Token summary (list item)          */
@@ -247,20 +277,22 @@ export const ScopedAccessTokenSchema = z.object({
   created_at: z.string(),
   expires_at: z.string().nullable(),
   last_used_at: z.string().nullable(),
-})
+});
 
 export const GetScopedAccessTokensResponseSchema = z.object({
   tokens: z.array(ScopedAccessTokenSchema),
-})
+});
 
-export type GetScopedAccessTokensResponse = z.infer<typeof GetScopedAccessTokensResponseSchema>
+export type GetScopedAccessTokensResponse = z.infer<
+  typeof GetScopedAccessTokensResponseSchema
+>;
 
 export const GetScopedAccessTokensResponseJsonSchema = zodToJsonSchema(
   GetScopedAccessTokensResponseSchema,
   {
     name: 'GetScopedAccessTokensResponse',
-  }
-)
+  },
+);
 
 /* ---------------------------------- */
 /* Create scoped access token body    */
@@ -272,16 +304,18 @@ export const CreateScopedAccessTokenBodySchema = z.object({
   organization_slugs: z.array(z.string()).optional(),
   project_refs: z.array(z.string()).optional(),
   permissions: z.array(ScopedAccessTokenPermissionEnum),
-})
+});
 
-export type CreateScopedAccessTokenBody = z.infer<typeof CreateScopedAccessTokenBodySchema>
+export type CreateScopedAccessTokenBody = z.infer<
+  typeof CreateScopedAccessTokenBodySchema
+>;
 
 export const CreateScopedAccessTokenBodyJsonSchema = zodToJsonSchema(
   CreateScopedAccessTokenBodySchema,
   {
     name: 'CreateScopedAccessTokenBody',
-  }
-)
+  },
+);
 
 /* ---------------------------------- */
 /* Create scoped access token response */
@@ -298,16 +332,18 @@ export const CreateScopedAccessTokenResponseSchema = z.object({
   created_at: z.string(),
   expires_at: z.string().nullable(),
   last_used_at: z.string().nullable(),
-})
+});
 
-export type CreateScopedAccessTokenResponse = z.infer<typeof CreateScopedAccessTokenResponseSchema>
+export type CreateScopedAccessTokenResponse = z.infer<
+  typeof CreateScopedAccessTokenResponseSchema
+>;
 
 export const CreateScopedAccessTokenResponseJsonSchema = zodToJsonSchema(
   CreateScopedAccessTokenResponseSchema,
   {
     name: 'CreateScopedAccessTokenResponse',
-  }
-)
+  },
+);
 
 /* ---------------------------------- */
 /* Get scoped access token response   */
@@ -323,13 +359,15 @@ export const GetScopedAccessTokenResponseSchema = z.object({
   created_at: z.string(),
   expires_at: z.string().nullable(),
   last_used_at: z.string().nullable(),
-})
+});
 
-export type GetScopedAccessTokenResponse = z.infer<typeof GetScopedAccessTokenResponseSchema>
+export type GetScopedAccessTokenResponse = z.infer<
+  typeof GetScopedAccessTokenResponseSchema
+>;
 
 export const GetScopedAccessTokenResponseJsonSchema = zodToJsonSchema(
   GetScopedAccessTokenResponseSchema,
   {
     name: 'GetScopedAccessTokenResponse',
-  }
-)
+  },
+);

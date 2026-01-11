@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync, FastifyRequest } from 'fastify'
+import type {FastifyPluginAsync, FastifyRequest} from 'fastify';
 import {
   ApproveAuthorizationResponse,
   AssignMemberRoleBody,
@@ -66,290 +66,315 @@ import {
   UpdateSSOProviderResponse,
   UpdateSubscriptionBody,
   UpdateSubscriptionResponse,
-} from '../openapi/index.js'
+} from '../openapi/index.js';
 
 interface OrgDailyUsageQuery {
-  apikey?: string
-  end?: string
-  project_ref?: string
-  start?: string
+  apikey?: string;
+  end?: string;
+  project_ref?: string;
+  start?: string;
 }
 
 interface OrganizationProjectsQuery {
   /** @description Number of projects to return per page */
-  limit?: number
+  limit?: number;
   /** @description Number of projects to skip */
-  offset?: number
+  offset?: number;
   /** @description Search projects by name */
-  search?: string
+  search?: string;
   /** @description Sort order for projects */
-  sort?: 'name_asc' | 'name_desc' | 'created_asc' | 'created_desc'
+  sort?: 'name_asc' | 'name_desc' | 'created_asc' | 'created_desc';
   /** @description A comma-separated list of project statuses to filter by.
    *
    *     The following values are supported: `ACTIVE_HEALTHY`, `INACTIVE`. */
-  statuses?: string
+  statuses?: string;
 }
 
 interface QueryParams {
-  limit?: number
-  offset?: number
+  limit?: number;
+  offset?: number;
 }
 
 interface OrgUsageQuery {
-  apikey?: string
-  end?: string
-  project_ref?: string
-  start?: string
+  apikey?: string;
+  end?: string;
+  project_ref?: string;
+  start?: string;
 }
 
 async function requestOrganizationUpgrade(
   slug: string,
-  body: RequestUpgradeBody
+  body: RequestUpgradeBody,
 ): Promise<RequestUpgradeResponse> {
-  return {} as RequestUpgradeResponse
+  return {} as RequestUpgradeResponse;
 }
 
 export async function deleteOrganizationTaxId(slug: string): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
-export async function getOrganizationTaxId(slug: string): Promise<TaxIdResponse> {
+export async function getOrganizationTaxId(
+  slug: string,
+): Promise<TaxIdResponse> {
   // TODO:
-  return {} as TaxIdResponse
+  return {} as TaxIdResponse;
 }
 
 export async function deleteSSOProvider(slug: string): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
-export async function getSSOProvider(slug: string): Promise<GetSSOProviderResponse> {
+export async function getSSOProvider(
+  slug: string,
+): Promise<GetSSOProviderResponse> {
   // TODO:
-  return {} as GetSSOProviderResponse
+  return {} as GetSSOProviderResponse;
 }
 
 export async function updateOrganizationTaxId(
   slug: string,
-  body: CreateTaxIdBody
+  body: CreateTaxIdBody,
 ): Promise<TaxIdResponse> {
   // TODO:
-  return {} as TaxIdResponse
+  return {} as TaxIdResponse;
 }
 
 export async function updateSSOProvider(
   slug: string,
-  body: UpdateSSOProviderBody
+  body: UpdateSSOProviderBody,
 ): Promise<UpdateSSOProviderResponse> {
   // TODO:
-  return {} as UpdateSSOProviderResponse
+  return {} as UpdateSSOProviderResponse;
 }
 
 export async function createAwsMarketplaceOrganization(
-  body: CreateAwsBilledOrganizationBody
+  body: CreateAwsBilledOrganizationBody,
 ): Promise<OrganizationResponse> {
   // TODO:
-  return {} as OrganizationResponse
+  return {} as OrganizationResponse;
 }
 
 export async function createSSOProvider(
   slug: string,
-  body: CreateSSOProviderBody
+  body: CreateSSOProviderBody,
 ): Promise<CreateSSOProviderResponse> {
   // TODO:
-  return {} as CreateSSOProviderResponse
+  return {} as CreateSSOProviderResponse;
 }
 
-export async function getOrganizationRoles(slug: string): Promise<OrganizationRoleResponse> {
+export async function getOrganizationRoles(
+  slug: string,
+): Promise<OrganizationRoleResponse> {
   // TODO:
-  return {} as OrganizationRoleResponse
+  return {} as OrganizationRoleResponse;
 }
 
 export async function getOrganizationProjects(
   slug: string,
-  query: OrganizationProjectsQuery
+  query: OrganizationProjectsQuery,
 ): Promise<OrganizationProjectsResponse> {
   // TODO:
-  return {} as OrganizationProjectsResponse
+  return {} as OrganizationProjectsResponse;
 }
 
 export async function getDailyOrganizationUsage(
   slug: string,
-  query: OrgDailyUsageQuery
+  query: OrgDailyUsageQuery,
 ): Promise<OrgDailyUsageResponse> {
   // TODO:
-  return {} as OrgDailyUsageResponse
+  return {} as OrgDailyUsageResponse;
 }
 
 export async function getOrganizationUsage(
   slug: string,
-  query: OrgUsageQuery
+  query: OrgUsageQuery,
 ): Promise<OrgUsageResponse> {
   // TODO:
-  return {} as OrgUsageResponse
+  return {} as OrgUsageResponse;
 }
 
-export async function setUpPaymentMethod(slug: string): Promise<SetupIntentResponse> {
+export async function setUpPaymentMethod(
+  slug: string,
+): Promise<SetupIntentResponse> {
   // TODO:
-  return {} as SetupIntentResponse
+  return {} as SetupIntentResponse;
 }
 
 export async function markPaymentMethodAsDefault(
   slug: string,
-  body: MarkDefaultPaymentMethodBody
+  body: MarkDefaultPaymentMethodBody,
 ): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
-export async function getPaymentMethods(slug: string): Promise<PaymentsResponse> {
+export async function getPaymentMethods(
+  slug: string,
+): Promise<PaymentsResponse> {
   // TODO:
-  return {} as PaymentsResponse
+  return {} as PaymentsResponse;
 }
 
 export async function detachPaymentMethod(
   slug: string,
-  body: DetachPaymentMethodBody
+  body: DetachPaymentMethodBody,
 ): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
 export async function declineAuthorizationRequest(
   slug: string,
-  id: string
+  id: string,
 ): Promise<DeclineAuthorizationResponse> {
   // TODO:
-  return {} as DeclineAuthorizationResponse
+  return {} as DeclineAuthorizationResponse;
 }
 
 export async function approveAuthorizationRequest(
   slug: string,
-  id: string
+  id: string,
 ): Promise<ApproveAuthorizationResponse> {
   // TODO:
-  return {} as ApproveAuthorizationResponse
+  return {} as ApproveAuthorizationResponse;
 }
 
 export async function revokeAuthorizedOAuthApp(
   slug: string,
-  id: string
+  id: string,
 ): Promise<RevokeAuthorizedOAuthAppResponse> {
   // TODO:
-  return {} as RevokeAuthorizedOAuthAppResponse
+  return {} as RevokeAuthorizedOAuthAppResponse;
 }
 
-export async function removeOAuthApp(slug: string, id: string): Promise<DeleteOAuthAppResponse> {
+export async function removeOAuthApp(
+  slug: string,
+  id: string,
+): Promise<DeleteOAuthAppResponse> {
   // TODO:
-  return {} as DeleteOAuthAppResponse
+  return {} as DeleteOAuthAppResponse;
 }
 
 export async function updateOAuthApp(
   slug: string,
   id: string,
-  body: CreateOAuthAppBody
+  body: CreateOAuthAppBody,
 ): Promise<PutOAuthAppResponse> {
   // TODO:
-  return {} as PutOAuthAppResponse
+  return {} as PutOAuthAppResponse;
 }
 
 export async function removeOAuthAppClientSecret(
   slug: string,
   app_id: string,
-  secret_id: string
+  secret_id: string,
 ): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
 export async function listOAuthAppClientSecrets(
   slug: string,
-  app_id: string
+  app_id: string,
 ): Promise<ListOAuthAppClientSecretsResponse> {
   // TODO:
-  return {} as ListOAuthAppClientSecretsResponse
+  return {} as ListOAuthAppClientSecretsResponse;
 }
 
 export async function createOAuthAppClientSecret(
   slug: string,
-  app_id: string
+  app_id: string,
 ): Promise<CreateOAuthAppClientSecretResponse> {
   // TODO:
-  return {} as CreateOAuthAppClientSecretResponse
+  return {} as CreateOAuthAppClientSecretResponse;
 }
 
 export async function createOAuthApp(
   slug: string,
-  body: CreateOAuthAppBody
+  body: CreateOAuthAppBody,
 ): Promise<CreateOAuthAppResponse> {
   // TODO:
-  return {} as CreateOAuthAppResponse
+  return {} as CreateOAuthAppResponse;
 }
 
-export async function listOAuthApps(slug: string, type: string): Promise<OAuthAppResponseList> {
+export async function listOAuthApps(
+  slug: string,
+  type: string,
+): Promise<OAuthAppResponseList> {
   // TODO:
-  return [] as OAuthAppResponseList
+  return [] as OAuthAppResponseList;
 }
 
 export async function updateMFAState(
-  params: { slug: string },
-  body: ChangeMFAEnforcementStateRequest
+  params: {slug: string},
+  body: ChangeMFAEnforcementStateRequest,
 ): Promise<MfaStatusResponse> {
   // TODO:
-  return {} as MfaStatusResponse
+  return {} as MfaStatusResponse;
 }
 
-export async function getMFAState(params: { slug: string }): Promise<MfaStatusResponse> {
+export async function getMFAState(params: {
+  slug: string;
+}): Promise<MfaStatusResponse> {
   // TODO:
-  return {} as MfaStatusResponse
+  return {} as MfaStatusResponse;
 }
 
 export async function getMembersWhoReachedFreeProjectLimit(params: {
-  slug: string
+  slug: string;
 }): Promise<MemberWithFreeProjectLimit> {
   // TODO:
-  return [] as MemberWithFreeProjectLimit
+  return [] as MemberWithFreeProjectLimit;
 }
 
 export async function deleteOrganizationInvitation(params: {
-  slug: string
-  id: string
+  slug: string;
+  id: string;
 }): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
 export async function acceptInvitationByToken(params: {
-  slug: string
-  token: string
+  slug: string;
+  token: string;
 }): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
 export async function getInvitationByToken(params: {
-  slug: string
-  token: string
+  slug: string;
+  token: string;
 }): Promise<InvitationByTokenResponse> {
   // TODO:
-  return {} as InvitationByTokenResponse
+  return {} as InvitationByTokenResponse;
 }
 
-export async function getAllInvitations(slug: string): Promise<InvitationResponse> {
+export async function getAllInvitations(
+  slug: string,
+): Promise<InvitationResponse> {
   // TODO:
-  return {} as InvitationResponse
+  return {} as InvitationResponse;
 }
 
-export async function createInvitation(slug: string, body: CreateInvitationBody): Promise<void> {
+export async function createInvitation(
+  slug: string,
+  body: CreateInvitationBody,
+): Promise<void> {
   // TODO: implement actual API call to create invitation
-  console.log(`Creating invitation for ${body.email} with role ${body.role_id} in org ${slug}`)
+  console.log(
+    `Creating invitation for ${body.email} with role ${body.role_id} in org ${slug}`,
+  );
 }
 
 export async function updateMemberRole(
   slug: string,
   user_id: string,
   role_id: number,
-  body: UpdateMemberRoleBody
+  body: UpdateMemberRoleBody,
 ): Promise<void> {
   // TODO: implement API call to update role
 }
@@ -357,180 +382,201 @@ export async function updateMemberRole(
 export async function deleteMemberRole(
   slug: string,
   user_id: string,
-  role_id: number
+  role_id: number,
 ): Promise<void> {
   // TODO: implement API call to delete role
 }
 
-export async function deleteOrganizationMember(slug: string, user_id: string): Promise<null> {
-  return null
+export async function deleteOrganizationMember(
+  slug: string,
+  user_id: string,
+): Promise<null> {
+  return null;
 }
 
 export async function assignMemberRole(
   slug: string,
   user_id: string,
-  body: AssignMemberRoleBody
+  body: AssignMemberRoleBody,
 ): Promise<null> {
   // TODO: implement actual API call to assign role
-  return null
+  return null;
 }
 
 export async function getOrganizationMembers(slug: string): Promise<Member> {
   // TODO:
-  return [] as Member
+  return [] as Member;
 }
 
-export async function getOrganizationEntitlements(slug: string): Promise<ListEntitlementsResponse> {
+export async function getOrganizationEntitlements(
+  slug: string,
+): Promise<ListEntitlementsResponse> {
   // TODO: implement actual API call
-  return {} as ListEntitlementsResponse
+  return {} as ListEntitlementsResponse;
 }
 
 export async function getStandardSecurityQuestionnaireUrl(
-  slug: string
+  slug: string,
 ): Promise<OrgDocumentUrlResponse> {
-  return {} as OrgDocumentUrlResponse
+  return {} as OrgDocumentUrlResponse;
 }
 
-export async function getSoc2Type2ReportUrl(slug: string): Promise<OrgDocumentUrlResponse> {
-  return {} as OrgDocumentUrlResponse
+export async function getSoc2Type2ReportUrl(
+  slug: string,
+): Promise<OrgDocumentUrlResponse> {
+  return {} as OrgDocumentUrlResponse;
 }
 
 export async function createDpaDocument(
   slug: string,
-  body: CreateDpaDocumentRequest
+  body: CreateDpaDocumentRequest,
 ): Promise<CreateDpaDocumentResponse> {
   // TODO:
-  return {} as CreateDpaDocumentResponse
+  return {} as CreateDpaDocumentResponse;
 }
 
 export async function getCustomer(slug: string): Promise<CustomerResponse> {
   // TODO: implement actual API call
-  return {} as CustomerResponse
+  return {} as CustomerResponse;
 }
 
-export async function updateCustomer(slug: string, body: BillingCustomerUpdateBody): Promise<void> {
+export async function updateCustomer(
+  slug: string,
+  body: BillingCustomerUpdateBody,
+): Promise<void> {
   // TODO: implement actual API call
 }
 
 export async function previewSubscriptionChange(
   slug: string,
-  body: UpdateSubscriptionBody
+  body: UpdateSubscriptionBody,
 ): Promise<void> {
   // TODO:
   // No response content needed for 201
 }
 
 export async function _confirmSubscriptionChange(
-  body: ConfirmCreateSubscriptionChangeBody
+  body: ConfirmCreateSubscriptionChangeBody,
 ): Promise<CreateOrganizationResponse | PendingConfirmationResponse> {
   // TODO:
-  return {} as CreateOrganizationResponse | PendingConfirmationResponse
+  return {} as CreateOrganizationResponse | PendingConfirmationResponse;
 }
 
 export async function confirmSubscriptionChange(
   slug: string,
-  body: ConfirmSubscriptionChangeBody
+  body: ConfirmSubscriptionChangeBody,
 ): Promise<PendingConfirmationResponse> {
   // TODO:
-  return {} as PendingConfirmationResponse
+  return {} as PendingConfirmationResponse;
 }
 
 export async function updateSubscription(
   slug: string,
-  body: UpdateSubscriptionBody
+  body: UpdateSubscriptionBody,
 ): Promise<UpdateSubscriptionResponse> {
   // TODO:
-  return {} as UpdateSubscriptionResponse
+  return {} as UpdateSubscriptionResponse;
 }
 
-export async function getSubscription(slug: string): Promise<GetSubscriptionResponse> {
+export async function getSubscription(
+  slug: string,
+): Promise<GetSubscriptionResponse> {
   // TODO: implement actual API call
-  return {} as GetSubscriptionResponse
+  return {} as GetSubscriptionResponse;
 }
 
 export async function getAvailablePlans(slug: string): Promise<PlansResponse> {
   // TODO: implement actual API call to fetch plans
-  return {} as PlansResponse
+  return {} as PlansResponse;
 }
 
-export async function getUpcomingInvoice(slug: string): Promise<UpcomingInvoice> {
+export async function getUpcomingInvoice(
+  slug: string,
+): Promise<UpcomingInvoice> {
   // TODO:
-  return {} as UpcomingInvoice
+  return {} as UpcomingInvoice;
 }
 
 export async function getInvoicePaymentLink(
   slug: string,
-  invoice_id: string
+  invoice_id: string,
 ): Promise<InvoicePaymentLinkResponse> {
   // TODO:
-  return {} as InvoicePaymentLinkResponse
+  return {} as InvoicePaymentLinkResponse;
 }
 
-export async function getInvoice(slug: string, invoice_id: string): Promise<Invoice> {
+export async function getInvoice(
+  slug: string,
+  invoice_id: string,
+): Promise<Invoice> {
   // TODO:
-  return {} as Invoice
+  return {} as Invoice;
 }
 
 export const countInvoices = async (slug: string): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 export const getInvoices = async (slug: string): Promise<InvoiceList> => {
   // TODO:
-  return {} as InvoiceList
-}
+  return {} as InvoiceList;
+};
 export const createTopUp = async (
   slug: string,
-  body: CreditsTopUpRequest
+  body: CreditsTopUpRequest,
 ): Promise<CreditsTopUpResponse> => {
   // TODO:
-  return {} as CreditsTopUpResponse
-}
+  return {} as CreditsTopUpResponse;
+};
 
 export const getAvailableImageVersions = async (
   slug: string,
-  body: OrganizationSlugAvailableVersionsBody
+  body: OrganizationSlugAvailableVersionsBody,
 ): Promise<OrganizationSlugAvailableVersionsResponse> => {
   // TODO:
-  return {} as OrganizationSlugAvailableVersionsResponse
-}
+  return {} as OrganizationSlugAvailableVersionsResponse;
+};
 export const getAuditLogs = async (
   slug: string,
-  query: { iso_timestamp_end: string; iso_timestamp_start: string }
+  query: {iso_timestamp_end: string; iso_timestamp_start: string},
 ): Promise<AuditLogsResponse> => {
   // TODO:
-  return {} as AuditLogsResponse
-}
+  return {} as AuditLogsResponse;
+};
 export const updateOrganization = async (
   slug: string,
-  body: UpdateOrganizationBody
+  body: UpdateOrganizationBody,
 ): Promise<UpdateOrganizationResponse> => {
   // TODO:
-  return {} as UpdateOrganizationResponse
-}
+  return {} as UpdateOrganizationResponse;
+};
 
 export const deleteOrganization = async (slug: string): Promise<null> => {
   // TODO:
-  return null
-}
-export const getOrganization = async (slug: string): Promise<OrganizationSlugResponse> => {
+  return null;
+};
+export const getOrganization = async (
+  slug: string,
+): Promise<OrganizationSlugResponse> => {
   // TODO:
-  return {} as OrganizationSlugResponse
-}
+  return {} as OrganizationSlugResponse;
+};
 
-export const getOrganizations = async (request: FastifyRequest): Promise<OrganizationResponse> => {
+export const getOrganizations = async (
+  request: FastifyRequest,
+): Promise<OrganizationResponse> => {
   // TODO:
-  return {} as OrganizationResponse
-}
+  return {} as OrganizationResponse;
+};
 
 export const createOrganizationWithTier = async (
-  body: CreateOrganizationBody
+  body: CreateOrganizationBody,
 ): Promise<CreateOrganizationResponse> => {
   // TODO:
-  return {} as CreateOrganizationResponse
-}
+  return {} as CreateOrganizationResponse;
+};
 
-const organizationRoutes: FastifyPluginAsync = async (app) => {
+const organizationRoutes: FastifyPluginAsync = async app => {
   app.get<{}>(
     '/',
     {
@@ -550,12 +596,12 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getOrganizations(request)
-      return reply.send(config)
-    }
-  )
+      const config = await getOrganizations(request);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Body: CreateOrganizationBody }>(
+  app.post<{Body: CreateOrganizationBody}>(
     '/',
     {
       schema: {
@@ -578,16 +624,17 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await createOrganizationWithTier(request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await createOrganizationWithTier(request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { slug: string } }>(
+  app.get<{Params: {slug: string}}>(
     '/:slug',
     {
       schema: {
-        description: 'Gets a specific organization that belongs to the authenticated user.',
+        description:
+          'Gets a specific organization that belongs to the authenticated user.',
         tags: ['Organizations'],
         operationId: 'OrganizationSlugController_getOrganization',
         params: {
@@ -619,12 +666,12 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getOrganization(request.params.slug)
-      return reply.send(config)
-    }
-  )
+      const config = await getOrganization(request.params.slug);
+      return reply.send(config);
+    },
+  );
 
-  app.delete<{ Params: { slug: string } }>(
+  app.delete<{Params: {slug: string}}>(
     '/:slug',
     {
       schema: {
@@ -665,12 +712,12 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await deleteOrganization(request.params.slug)
-      return reply.send(config)
-    }
-  )
+      const config = await deleteOrganization(request.params.slug);
+      return reply.send(config);
+    },
+  );
 
-  app.patch<{ Params: { slug: string }; Body: UpdateOrganizationBody }>(
+  app.patch<{Params: {slug: string}; Body: UpdateOrganizationBody}>(
     '/:slug',
     {
       schema: {
@@ -714,14 +761,17 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await updateOrganization(request.params.slug, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await updateOrganization(
+        request.params.slug,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
-    Querystring: { iso_timestamp_end: string; iso_timestamp_start: string }
+    Params: {slug: string};
+    Querystring: {iso_timestamp_end: string; iso_timestamp_start: string};
   }>(
     '/:slug/audit',
     {
@@ -777,12 +827,15 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getAuditLogs(request.params.slug, request.query)
-      return reply.send(config)
-    }
-  )
+      const config = await getAuditLogs(request.params.slug, request.query);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { slug: string }; Body: OrganizationSlugAvailableVersionsBody }>(
+  app.post<{
+    Params: {slug: string};
+    Body: OrganizationSlugAvailableVersionsBody;
+  }>(
     '/:slug/available-versions',
     {
       schema: {
@@ -827,12 +880,15 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getAvailableImageVersions(request.params.slug, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await getAvailableImageVersions(
+        request.params.slug,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { slug: string }; Body: CreditsTopUpRequest }>(
+  app.post<{Params: {slug: string}; Body: CreditsTopUpRequest}>(
     '/:slug/billing/credits/top-up',
     {
       schema: {
@@ -876,16 +932,17 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await createTopUp(request.params.slug, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await createTopUp(request.params.slug, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.head<{ Params: { slug: string } }>(
+  app.head<{Params: {slug: string}}>(
     '/:slug/billing/invoices',
     {
       schema: {
-        description: 'Gets the total count of invoices for the given organization',
+        description:
+          'Gets the total count of invoices for the given organization',
         tags: ['Organizations'],
         operationId: 'OrgInvoicesController_countInvoices',
         params: {
@@ -902,7 +959,7 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           200: {
             description: 'Total count value',
             headers: {
-              'X-Total-Count': { type: 'number' },
+              'X-Total-Count': {type: 'number'},
             },
           },
           401: {
@@ -925,12 +982,12 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await countInvoices(request.params.slug)
-      return reply.send(config)
-    }
-  )
+      const config = await countInvoices(request.params.slug);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { slug: string }; Querystring?: QueryParams }>(
+  app.get<{Params: {slug: string}; Querystring?: QueryParams}>(
     '/:slug/billing/invoices',
     {
       schema: {
@@ -984,13 +1041,13 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getInvoices(request.params.slug)
-      return reply.send(config)
-    }
-  )
+      const config = await getInvoices(request.params.slug);
+      return reply.send(config);
+    },
+  );
 
   app.get<{
-    Params: { slug: string; invoice_id: string }
+    Params: {slug: string; invoice_id: string};
   }>(
     '/:slug/billing/invoices/:invoice_id',
     {
@@ -1001,28 +1058,31 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            slug: { type: 'string', description: 'Organization slug' },
-            invoice_id: { type: 'string', description: 'Invoice ID' },
+            slug: {type: 'string', description: 'Organization slug'},
+            invoice_id: {type: 'string', description: 'Invoice ID'},
           },
           required: ['slug', 'invoice_id'],
         },
         response: {
-          200: { $ref: 'Invoice' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to retrieve invoice', type: 'null' },
+          200: {$ref: 'Invoice'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to retrieve invoice', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const invoice = await getInvoice(request.params.slug, request.params.invoice_id)
-      return reply.send(invoice)
-    }
-  )
+      const invoice = await getInvoice(
+        request.params.slug,
+        request.params.invoice_id,
+      );
+      return reply.send(invoice);
+    },
+  );
 
   app.get<{
-    Params: { slug: string; invoice_id: string }
+    Params: {slug: string; invoice_id: string};
   }>(
     '/:slug/billing/invoices/:invoice_id/payment-link',
     {
@@ -1033,28 +1093,34 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            slug: { type: 'string', description: 'Organization slug' },
-            invoice_id: { type: 'string', description: 'Invoice ID' },
+            slug: {type: 'string', description: 'Organization slug'},
+            invoice_id: {type: 'string', description: 'Invoice ID'},
           },
           required: ['slug', 'invoice_id'],
         },
         response: {
-          200: { $ref: 'InvoicePaymentLinkResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to retrieve invoice payment link', type: 'null' },
+          200: {$ref: 'InvoicePaymentLinkResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to retrieve invoice payment link',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const link = await getInvoicePaymentLink(request.params.slug, request.params.invoice_id)
-      return reply.send(link)
-    }
-  )
+      const link = await getInvoicePaymentLink(
+        request.params.slug,
+        request.params.invoice_id,
+      );
+      return reply.send(link);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/billing/invoices/upcoming',
     {
@@ -1065,27 +1131,30 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            slug: { type: 'string', description: 'Organization slug' },
+            slug: {type: 'string', description: 'Organization slug'},
           },
           required: ['slug'],
         },
         response: {
-          200: { $ref: 'UpcomingInvoice' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to retrieve upcoming invoice', type: 'null' },
+          200: {$ref: 'UpcomingInvoice'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to retrieve upcoming invoice',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const invoice = await getUpcomingInvoice(request.params.slug)
-      return reply.send(invoice)
-    }
-  )
+      const invoice = await getUpcomingInvoice(request.params.slug);
+      return reply.send(invoice);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/billing/plans',
     {
@@ -1096,27 +1165,27 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            slug: { type: 'string', description: 'Organization slug' },
+            slug: {type: 'string', description: 'Organization slug'},
           },
           required: ['slug'],
         },
         response: {
-          200: { $ref: 'PlansResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to get subscription Plans', type: 'null' },
+          200: {$ref: 'PlansResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to get subscription Plans', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const plans = await getAvailablePlans(request.params.slug)
-      return reply.send(plans)
-    }
-  )
+      const plans = await getAvailablePlans(request.params.slug);
+      return reply.send(plans);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/billing/subscription',
     {
@@ -1124,26 +1193,30 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Gets the current subscription',
         tags: ['Organizations'],
         operationId: 'SubscriptionController_getSubscription',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
         response: {
-          200: { $ref: 'GetSubscriptionResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to retrieve subscription', type: 'null' },
+          200: {$ref: 'GetSubscriptionResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to retrieve subscription', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const subscription = await getSubscription(request.params.slug)
-      return reply.send(subscription)
-    }
-  )
+      const subscription = await getSubscription(request.params.slug);
+      return reply.send(subscription);
+    },
+  );
 
   // PUT subscription
   app.put<{
-    Params: { slug: string }
-    Body: UpdateSubscriptionBody
+    Params: {slug: string};
+    Body: UpdateSubscriptionBody;
   }>(
     '/:slug/billing/subscription',
     {
@@ -1151,28 +1224,38 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Updates subscription',
         tags: ['Organizations'],
         operationId: 'SubscriptionController_updateSubscription',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
         body: {
           $ref: 'UpdateSubscriptionBody',
         },
         response: {
-          200: { $ref: 'UpdateSubscriptionResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to update subscription change', type: 'null' },
+          200: {$ref: 'UpdateSubscriptionResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to update subscription change',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const updated = await updateSubscription(request.params.slug, request.body)
-      return reply.send(updated)
-    }
-  )
+      const updated = await updateSubscription(
+        request.params.slug,
+        request.body,
+      );
+      return reply.send(updated);
+    },
+  );
 
   app.post<{
-    Params: { slug: string }
-    Body: ConfirmSubscriptionChangeBody
+    Params: {slug: string};
+    Body: ConfirmSubscriptionChangeBody;
   }>(
     '/:slug/billing/subscription/confirm',
     {
@@ -1180,28 +1263,38 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Confirm subscription change',
         tags: ['Organizations'],
         operationId: 'SubscriptionController_confirmSubscriptionChange',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
-        body: { $ref: 'ConfirmSubscriptionChangeBody' },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
+        body: {$ref: 'ConfirmSubscriptionChangeBody'},
         response: {
-          200: { description: 'Confirmed successfully', type: 'null' },
-          202: { $ref: 'PendingConfirmationResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to confirm subscription change', type: 'null' },
+          200: {description: 'Confirmed successfully', type: 'null'},
+          202: {$ref: 'PendingConfirmationResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to confirm subscription change',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const response = await confirmSubscriptionChange(request.params.slug, request.body)
-      if (response) return reply.code(202).send(response)
-      return reply.code(200).send()
-    }
-  )
+      const response = await confirmSubscriptionChange(
+        request.params.slug,
+        request.body,
+      );
+      if (response) return reply.code(202).send(response);
+      return reply.code(200).send();
+    },
+  );
 
   app.post<{
-    Params: { slug: string }
-    Body: UpdateSubscriptionBody
+    Params: {slug: string};
+    Body: UpdateSubscriptionBody;
   }>(
     '/:slug/billing/subscription/preview',
     {
@@ -1209,26 +1302,33 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Preview subscription changes',
         tags: ['Organizations'],
         operationId: 'SubscriptionController_previewSubscriptionChange',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
-        body: { $ref: 'UpdateSubscriptionBody' },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
+        body: {$ref: 'UpdateSubscriptionBody'},
         response: {
-          201: { description: 'Preview created', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to preview subscription changes', type: 'null' },
+          201: {description: 'Preview created', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to preview subscription changes',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await previewSubscriptionChange(request.params.slug, request.body)
-      return reply.code(201).send()
-    }
-  )
+      await previewSubscriptionChange(request.params.slug, request.body);
+      return reply.code(201).send();
+    },
+  );
 
   app.post<{
-    Params: { slug: string }
-    Body: RequestUpgradeBody
+    Params: {slug: string};
+    Body: RequestUpgradeBody;
   }>(
     '/:slug/billing/upgrade-request',
     {
@@ -1236,26 +1336,33 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Request organization upgrade and notify billing owners',
         tags: ['Organizations'],
         operationId: 'UpgradeRequestController_requestUpgrade',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
-        body: { $ref: 'RequestUpgradeBody' },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
+        body: {$ref: 'RequestUpgradeBody'},
         response: {
-          201: { $ref: 'RequestUpgradeResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to send upgrade request', type: 'null' },
+          201: {$ref: 'RequestUpgradeResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to send upgrade request', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const result = await requestOrganizationUpgrade(request.params.slug, request.body)
+      const result = await requestOrganizationUpgrade(
+        request.params.slug,
+        request.body,
+      );
 
-      return reply.status(201).send(result)
-    }
-  )
+      return reply.status(201).send(result);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/customer',
     {
@@ -1263,26 +1370,33 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Gets the Billing customer',
         tags: ['Organizations'],
         operationId: 'CustomerController_getCustomer',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
         response: {
-          200: { $ref: 'CustomerResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to retrieve the Billing customer', type: 'null' },
+          200: {$ref: 'CustomerResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to retrieve the Billing customer',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const customer = await getCustomer(request.params.slug)
-      return reply.send(customer)
-    }
-  )
+      const customer = await getCustomer(request.params.slug);
+      return reply.send(customer);
+    },
+  );
 
   // PUT Customer
   app.put<{
-    Params: { slug: string }
-    Body: BillingCustomerUpdateBody
+    Params: {slug: string};
+    Body: BillingCustomerUpdateBody;
   }>(
     '/:slug/customer',
     {
@@ -1290,26 +1404,33 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Updates the billing customer',
         tags: ['Organizations'],
         operationId: 'CustomerController_updateCustomer',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
-        body: { $ref: 'BillingCustomerUpdateBody' },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
+        body: {$ref: 'BillingCustomerUpdateBody'},
         response: {
-          204: { description: 'Customer updated successfully', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to update the billing customer', type: 'null' },
+          204: {description: 'Customer updated successfully', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to update the billing customer',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await updateCustomer(request.params.slug, request.body)
-      return reply.code(204).send()
-    }
-  )
+      await updateCustomer(request.params.slug, request.body);
+      return reply.code(204).send();
+    },
+  );
 
   app.post<{
-    Params: { slug: string }
-    Body: CreateDpaDocumentRequest
+    Params: {slug: string};
+    Body: CreateDpaDocumentRequest;
   }>(
     '/:slug/documents/dpa',
     {
@@ -1317,24 +1438,31 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Create DPA document using PandaDoc',
         tags: ['Organizations'],
         operationId: 'OrgDocumentsController_createDpaDocument',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
-        body: { $ref: 'CreateDpaDocumentRequest' },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
+        body: {$ref: 'CreateDpaDocumentRequest'},
         response: {
-          201: { $ref: 'CreateDpaDocumentResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          201: {$ref: 'CreateDpaDocumentResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const response = await createDpaDocument(request.params.slug, request.body)
-      return reply.code(201).send(response)
-    }
-  )
+      const response = await createDpaDocument(
+        request.params.slug,
+        request.body,
+      );
+      return reply.code(201).send(response);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/documents/soc2-type-2-report',
     {
@@ -1342,47 +1470,58 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Get SOC2 Type 2 report URL',
         tags: ['Organizations'],
         operationId: 'OrgDocumentsController_getSoc2Type2ReportUrl',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
         response: {
-          200: { $ref: 'OrgDocumentUrlResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {$ref: 'OrgDocumentUrlResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const response = await getSoc2Type2ReportUrl(request.params.slug)
-      return reply.send(response)
-    }
-  )
+      const response = await getSoc2Type2ReportUrl(request.params.slug);
+      return reply.send(response);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/documents/standard-security-questionnaire',
     {
       schema: {
         description: 'Get standard security questionnaire URL',
         tags: ['Organizations'],
-        operationId: 'OrgDocumentsController_getStandardSecurityQuestionnaireUrl',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
+        operationId:
+          'OrgDocumentsController_getStandardSecurityQuestionnaireUrl',
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
         response: {
-          200: { $ref: 'OrgDocumentUrlResponse' },
-          401: { description: 'Unauthorized', type: 'object' },
-          403: { description: 'Forbidden action', type: 'object' },
-          429: { description: 'Rate limit exceeded', type: 'object' },
+          200: {$ref: 'OrgDocumentUrlResponse'},
+          401: {description: 'Unauthorized', type: 'object'},
+          403: {description: 'Forbidden action', type: 'object'},
+          429: {description: 'Rate limit exceeded', type: 'object'},
         },
       },
     },
     async (request, reply) => {
-      const response = await getStandardSecurityQuestionnaireUrl(request.params.slug)
-      return reply.send(response)
-    }
-  )
+      const response = await getStandardSecurityQuestionnaireUrl(
+        request.params.slug,
+      );
+      return reply.send(response);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/entitlements',
     {
@@ -1390,23 +1529,27 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Get entitlements for an organization',
         tags: ['Organizations'],
         operationId: 'OrganizationEntitlementsController_getEntitlements',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
         response: {
-          200: { $ref: 'ListEntitlementsResponse' },
-          401: { description: 'Unauthorized', type: 'object' },
-          403: { description: 'Forbidden action', type: 'object' },
-          429: { description: 'Rate limit exceeded', type: 'object' },
+          200: {$ref: 'ListEntitlementsResponse'},
+          401: {description: 'Unauthorized', type: 'object'},
+          403: {description: 'Forbidden action', type: 'object'},
+          429: {description: 'Rate limit exceeded', type: 'object'},
         },
       },
     },
     async (request, reply) => {
-      const response = await getOrganizationEntitlements(request.params.slug)
-      return reply.send(response)
-    }
-  )
+      const response = await getOrganizationEntitlements(request.params.slug);
+      return reply.send(response);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/members',
     {
@@ -1414,21 +1557,28 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: "Gets organization's members",
         tags: ['Organizations'],
         operationId: 'MembersController_getMembers',
-        params: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] },
+        params: {
+          type: 'object',
+          properties: {slug: {type: 'string'}},
+          required: ['slug'],
+        },
         response: {
-          200: { $ref: 'Member' },
-          500: { description: "Failed to retrieve organization's members", type: 'object' },
+          200: {$ref: 'Member'},
+          500: {
+            description: "Failed to retrieve organization's members",
+            type: 'object',
+          },
         },
       },
     },
     async (request, reply) => {
-      const members = await getOrganizationMembers(request.params.slug)
-      return reply.send(members)
-    }
-  )
+      const members = await getOrganizationMembers(request.params.slug);
+      return reply.send(members);
+    },
+  );
 
   app.delete<{
-    Params: { slug: string; user_id: string }
+    Params: {slug: string; user_id: string};
   }>(
     '/:slug/members/:user_id',
     {
@@ -1438,28 +1588,34 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         operationId: 'MembersController_deleteMember',
         params: {
           type: 'object',
-          properties: { slug: { type: 'string' }, user_id: { type: 'string' } },
+          properties: {slug: {type: 'string'}, user_id: {type: 'string'}},
           required: ['slug', 'user_id'],
         },
         response: {
-          200: { type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to remove organization member', type: 'null' },
+          200: {type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to remove organization member',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await deleteOrganizationMember(request.params.slug, request.params.user_id)
-      return reply.code(200).send()
-    }
-  )
+      await deleteOrganizationMember(
+        request.params.slug,
+        request.params.user_id,
+      );
+      return reply.code(200).send();
+    },
+  );
 
   // PATCH member role
   app.patch<{
-    Params: { slug: string; user_id: string }
-    Body: AssignMemberRoleBody
+    Params: {slug: string; user_id: string};
+    Body: AssignMemberRoleBody;
   }>(
     '/:slug/members/:user_id',
     {
@@ -1469,28 +1625,35 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         operationId: 'MembersController_assignMemberRole',
         params: {
           type: 'object',
-          properties: { slug: { type: 'string' }, user_id: { type: 'string' } },
+          properties: {slug: {type: 'string'}, user_id: {type: 'string'}},
           required: ['slug', 'user_id'],
         },
-        body: { $ref: 'AssignMemberRoleBody' },
+        body: {$ref: 'AssignMemberRoleBody'},
         response: {
-          200: { type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to assign organization member with new role', type: 'null' },
+          200: {type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to assign organization member with new role',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await assignMemberRole(request.params.slug, request.params.user_id, request.body)
-      return reply.code(200).send()
-    }
-  )
+      await assignMemberRole(
+        request.params.slug,
+        request.params.user_id,
+        request.body,
+      );
+      return reply.code(200).send();
+    },
+  );
 
   app.put<{
-    Params: { slug: string; user_id: string; role_id: number }
-    Body: UpdateMemberRoleBody
+    Params: {slug: string; user_id: string; role_id: number};
+    Body: UpdateMemberRoleBody;
   }>(
     '/:slug/members/:user_id/roles/:role_id',
     {
@@ -1501,19 +1664,22 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            slug: { type: 'string' },
-            user_id: { type: 'string' },
-            role_id: { type: 'number' },
+            slug: {type: 'string'},
+            user_id: {type: 'string'},
+            role_id: {type: 'number'},
           },
           required: ['slug', 'user_id', 'role_id'],
         },
-        body: { $ref: 'UpdateMemberRoleBody' },
+        body: {$ref: 'UpdateMemberRoleBody'},
         response: {
-          200: { type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to update organization member role', type: 'null' },
+          200: {type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to update organization member role',
+            type: 'null',
+          },
         },
       },
     },
@@ -1522,15 +1688,15 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         request.params.slug,
         request.params.user_id,
         request.params.role_id,
-        request.body
-      )
-      return reply.code(200).send()
-    }
-  )
+        request.body,
+      );
+      return reply.code(200).send();
+    },
+  );
 
   // DELETE: Remove member role
   app.delete<{
-    Params: { slug: string; user_id: string; role_id: number }
+    Params: {slug: string; user_id: string; role_id: number};
   }>(
     '/:slug/members/:user_id/roles/:role_id',
     {
@@ -1541,29 +1707,36 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            slug: { type: 'string' },
-            user_id: { type: 'string' },
-            role_id: { type: 'number' },
+            slug: {type: 'string'},
+            user_id: {type: 'string'},
+            role_id: {type: 'number'},
           },
           required: ['slug', 'user_id', 'role_id'],
         },
         response: {
-          200: { type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to remove organization member role', type: 'null' },
+          200: {type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to remove organization member role',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await deleteMemberRole(request.params.slug, request.params.user_id, request.params.role_id)
-      return reply.code(200).send()
-    }
-  )
+      await deleteMemberRole(
+        request.params.slug,
+        request.params.user_id,
+        request.params.role_id,
+      );
+      return reply.code(200).send();
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/members/invitations',
     {
@@ -1573,28 +1746,31 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         operationId: 'InvitationsController_getAllInvitations',
         params: {
           type: 'object',
-          properties: { slug: { type: 'string' } },
+          properties: {slug: {type: 'string'}},
           required: ['slug'],
         },
         response: {
-          200: { $ref: 'InvitationResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to get organization invitations', type: 'null' },
+          200: {$ref: 'InvitationResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to get organization invitations',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const invitations = await getAllInvitations(request.params.slug)
-      return reply.send(invitations)
-    }
-  )
+      const invitations = await getAllInvitations(request.params.slug);
+      return reply.send(invitations);
+    },
+  );
 
   // POST: Create new invitation
   app.post<{
-    Params: { slug: string }
-    Body: CreateInvitationBody
+    Params: {slug: string};
+    Body: CreateInvitationBody;
   }>(
     '/:slug/members/invitations',
     {
@@ -1604,27 +1780,30 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         operationId: 'InvitationsController_createInvitation',
         params: {
           type: 'object',
-          properties: { slug: { type: 'string' } },
+          properties: {slug: {type: 'string'}},
           required: ['slug'],
         },
-        body: { $ref: 'CreateInvitationBody' },
+        body: {$ref: 'CreateInvitationBody'},
         response: {
-          201: { type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to create organization invitation', type: 'null' },
+          201: {type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to create organization invitation',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await createInvitation(request.params.slug, request.body)
-      return reply.code(201).send()
-    }
-  )
+      await createInvitation(request.params.slug, request.body);
+      return reply.code(201).send();
+    },
+  );
 
   app.delete<{
-    Params: { slug: string; id: string }
+    Params: {slug: string; id: string};
   }>(
     '/:slug/members/invitations/:id',
     {
@@ -1634,7 +1813,7 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         operationId: 'InvitationsController_deleteInvitation',
         params: {
           type: 'object',
-          properties: { slug: { type: 'string' }, id: { type: 'string' } },
+          properties: {slug: {type: 'string'}, id: {type: 'string'}},
           required: ['slug', 'id'],
         },
         response: {
@@ -1655,20 +1834,21 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
             type: 'null',
           },
           500: {
-            description: 'Failed to delete organization invitation with given id',
+            description:
+              'Failed to delete organization invitation with given id',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      await deleteOrganizationInvitation(request.params)
-      return reply.code(200).send()
-    }
-  )
+      await deleteOrganizationInvitation(request.params);
+      return reply.code(200).send();
+    },
+  );
 
   app.get<{
-    Params: { slug: string; token: string }
+    Params: {slug: string; token: string};
   }>(
     '/:slug/members/invitations/:token',
     {
@@ -1700,13 +1880,13 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const invitation = await getInvitationByToken(request.params)
-      return reply.send(invitation)
-    }
-  )
+      const invitation = await getInvitationByToken(request.params);
+      return reply.send(invitation);
+    },
+  );
 
   app.post<{
-    Params: { slug: string; token: string }
+    Params: {slug: string; token: string};
   }>(
     '/:slug/members/invitations/:token',
     {
@@ -1717,8 +1897,8 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         params: {
           type: 'object',
           properties: {
-            slug: { type: 'string' },
-            token: { type: 'string' },
+            slug: {type: 'string'},
+            token: {type: 'string'},
           },
           required: ['slug', 'token'],
         },
@@ -1735,13 +1915,13 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await acceptInvitationByToken(request.params)
-      return reply.code(201).send()
-    }
-  )
+      await acceptInvitationByToken(request.params);
+      return reply.code(201).send();
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/members/mfa/enforcement',
     {
@@ -1784,14 +1964,14 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const status = await getMFAState(request.params)
-      return reply.code(201).send(status)
-    }
-  )
+      const status = await getMFAState(request.params);
+      return reply.code(201).send(status);
+    },
+  );
 
   app.patch<{
-    Params: { slug: string }
-    Body: ChangeMFAEnforcementStateRequest
+    Params: {slug: string};
+    Body: ChangeMFAEnforcementStateRequest;
   }>(
     '/:slug/members/mfa/enforcement',
     {
@@ -1814,7 +1994,8 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         },
         response: {
           201: {
-            description: 'MFA enforcement state on organization updated successfully',
+            description:
+              'MFA enforcement state on organization updated successfully',
             $ref: 'MfaStatusResponse',
           },
           401: {
@@ -1837,20 +2018,22 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const updated = await updateMFAState(request.params, request.body)
-      return reply.code(201).send(updated)
-    }
-  )
+      const updated = await updateMFAState(request.params, request.body);
+      return reply.code(201).send(updated);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/members/reached-free-project-limit',
     {
       schema: {
-        description: 'Gets organization members who have reached their free project limit',
+        description:
+          'Gets organization members who have reached their free project limit',
         tags: ['Organizations'],
-        operationId: 'ReachedFreeProjectLimitController_getMembersWhoReachedFreeProjectLimit',
+        operationId:
+          'ReachedFreeProjectLimitController_getMembersWhoReachedFreeProjectLimit',
         params: {
           type: 'object',
           properties: {
@@ -1863,7 +2046,8 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         },
         response: {
           200: {
-            description: 'Organization members who have reached their free project limit',
+            description:
+              'Organization members who have reached their free project limit',
             $ref: 'MemberWithFreeProjectLimit',
           },
           401: {
@@ -1887,14 +2071,16 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const members = await getMembersWhoReachedFreeProjectLimit(request.params)
-      return reply.send(members)
-    }
-  )
+      const members = await getMembersWhoReachedFreeProjectLimit(
+        request.params,
+      );
+      return reply.send(members);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
-    Querystring: { type: 'published' | 'authorized' }
+    Params: {slug: string};
+    Querystring: {type: 'published' | 'authorized'};
   }>(
     '/:slug/oauth/apps',
     {
@@ -1942,14 +2128,14 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const apps = await listOAuthApps(request.params.slug, request.query.type)
-      return reply.send(apps)
-    }
-  )
+      const apps = await listOAuthApps(request.params.slug, request.query.type);
+      return reply.send(apps);
+    },
+  );
 
   app.post<{
-    Params: { slug: string }
-    Body: CreateOAuthAppBody
+    Params: {slug: string};
+    Body: CreateOAuthAppBody;
   }>(
     '/:slug/oauth/apps',
     {
@@ -1991,13 +2177,13 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const app = await createOAuthApp(request.params.slug, request.body)
-      return reply.code(201).send(app)
-    }
-  )
+      const app = await createOAuthApp(request.params.slug, request.body);
+      return reply.code(201).send(app);
+    },
+  );
 
   app.get<{
-    Params: { slug: string; app_id: string }
+    Params: {slug: string; app_id: string};
   }>(
     '/:slug/oauth/apps/:app_id/client-secrets',
     {
@@ -2040,13 +2226,16 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const secrets = await listOAuthAppClientSecrets(request.params.slug, request.params.app_id)
-      return reply.send(secrets)
-    }
-  )
+      const secrets = await listOAuthAppClientSecrets(
+        request.params.slug,
+        request.params.app_id,
+      );
+      return reply.send(secrets);
+    },
+  );
 
   app.post<{
-    Params: { slug: string; app_id: string }
+    Params: {slug: string; app_id: string};
   }>(
     '/:slug/oauth/apps/:app_id/client-secrets',
     {
@@ -2089,13 +2278,16 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const secret = await createOAuthAppClientSecret(request.params.slug, request.params.app_id)
-      return reply.code(201).send(secret)
-    }
-  )
+      const secret = await createOAuthAppClientSecret(
+        request.params.slug,
+        request.params.app_id,
+      );
+      return reply.code(201).send(secret);
+    },
+  );
 
   app.delete<{
-    Params: { slug: string; app_id: string; secret_id: string }
+    Params: {slug: string; app_id: string; secret_id: string};
   }>(
     '/:slug/oauth/apps/:app_id/client-secrets/:secret_id',
     {
@@ -2145,15 +2337,15 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       await removeOAuthAppClientSecret(
         request.params.slug,
         request.params.app_id,
-        request.params.secret_id
-      )
-      return reply.send()
-    }
-  )
+        request.params.secret_id,
+      );
+      return reply.send();
+    },
+  );
 
   app.put<{
-    Params: { slug: string; id: string }
-    Body: CreateOAuthAppBody
+    Params: {slug: string; id: string};
+    Body: CreateOAuthAppBody;
   }>(
     '/:slug/oauth/apps/:id',
     {
@@ -2199,13 +2391,17 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const updatedApp = await updateOAuthApp(request.params.slug, request.params.id, request.body)
-      return reply.send(updatedApp)
-    }
-  )
+      const updatedApp = await updateOAuthApp(
+        request.params.slug,
+        request.params.id,
+        request.body,
+      );
+      return reply.send(updatedApp);
+    },
+  );
 
   app.delete<{
-    Params: { slug: string; id: string }
+    Params: {slug: string; id: string};
   }>(
     '/:slug/oauth/apps/:id',
     {
@@ -2248,13 +2444,16 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const deletedApp = await removeOAuthApp(request.params.slug, request.params.id)
-      return reply.send(deletedApp)
-    }
-  )
+      const deletedApp = await removeOAuthApp(
+        request.params.slug,
+        request.params.id,
+      );
+      return reply.send(deletedApp);
+    },
+  );
 
   app.post<{
-    Params: { slug: string; id: string }
+    Params: {slug: string; id: string};
   }>(
     '/:slug/oauth/apps/:id/revoke',
     {
@@ -2297,20 +2496,24 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const revokedApp = await revokeAuthorizedOAuthApp(request.params.slug, request.params.id)
-      return reply.code(201).send(revokedApp)
-    }
-  )
+      const revokedApp = await revokeAuthorizedOAuthApp(
+        request.params.slug,
+        request.params.id,
+      );
+      return reply.code(201).send(revokedApp);
+    },
+  );
 
   app.post<{
-    Params: { slug: string; id: string }
+    Params: {slug: string; id: string};
   }>(
     '/:slug/oauth/authorizations/:id',
     {
       schema: {
         description: '[Beta] Approve oauth app authorization request',
         tags: ['Organizations'],
-        operationId: 'OrganizationOAuthAuthorizationsController_approveAuthorizationRequest',
+        operationId:
+          'OrganizationOAuthAuthorizationsController_approveAuthorizationRequest',
         params: {
           type: 'object',
           properties: {
@@ -2346,20 +2549,24 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const response = await approveAuthorizationRequest(request.params.slug, request.params.id)
-      return reply.code(201).send(response)
-    }
-  )
+      const response = await approveAuthorizationRequest(
+        request.params.slug,
+        request.params.id,
+      );
+      return reply.code(201).send(response);
+    },
+  );
 
   app.delete<{
-    Params: { slug: string; id: string }
+    Params: {slug: string; id: string};
   }>(
     '/:slug/oauth/authorizations/:id',
     {
       schema: {
         description: '[Beta] Decline oauth app authorization request',
         tags: ['Organizations'],
-        operationId: 'OrganizationOAuthAuthorizationsController_declineAuthorizationRequest',
+        operationId:
+          'OrganizationOAuthAuthorizationsController_declineAuthorizationRequest',
         params: {
           type: 'object',
           properties: {
@@ -2395,13 +2602,16 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const response = await declineAuthorizationRequest(request.params.slug, request.params.id)
-      return reply.send(response)
-    }
-  )
+      const response = await declineAuthorizationRequest(
+        request.params.slug,
+        request.params.id,
+      );
+      return reply.send(response);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/payments',
     {
@@ -2424,22 +2634,25 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
             description: 'List of payment methods',
             $ref: 'PaymentsResponse',
           },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to get Stripe payment methods', type: 'null' },
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to get Stripe payment methods',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const payments = await getPaymentMethods(request.params.slug)
-      return reply.send(payments)
-    }
-  )
+      const payments = await getPaymentMethods(request.params.slug);
+      return reply.send(payments);
+    },
+  );
 
   app.delete<{
-    Params: { slug: string }
-    Body: DetachPaymentMethodBody
+    Params: {slug: string};
+    Body: DetachPaymentMethodBody;
   }>(
     '/:slug/payments',
     {
@@ -2457,25 +2670,28 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           },
           required: ['slug'],
         },
-        body: { $ref: 'DetachPaymentMethodBody' },
+        body: {$ref: 'DetachPaymentMethodBody'},
         response: {
-          200: { description: 'Payment method detached', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to detach Stripe payment method', type: 'null' },
+          200: {description: 'Payment method detached', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to detach Stripe payment method',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await detachPaymentMethod(request.params.slug, request.body)
-      return reply.send()
-    }
-  )
+      await detachPaymentMethod(request.params.slug, request.body);
+      return reply.send();
+    },
+  );
 
   app.put<{
-    Params: { slug: string }
-    Body: MarkDefaultPaymentMethodBody
+    Params: {slug: string};
+    Body: MarkDefaultPaymentMethodBody;
   }>(
     '/:slug/payments/default',
     {
@@ -2493,24 +2709,27 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           },
           required: ['slug'],
         },
-        body: { $ref: 'MarkDefaultPaymentMethodBody' },
+        body: {$ref: 'MarkDefaultPaymentMethodBody'},
         response: {
-          200: { description: 'Payment method marked as default', type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to mark payment method as default', type: 'null' },
+          200: {description: 'Payment method marked as default', type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: 'Failed to mark payment method as default',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      await markPaymentMethodAsDefault(request.params.slug, request.body)
-      return reply.send()
-    }
-  )
+      await markPaymentMethodAsDefault(request.params.slug, request.body);
+      return reply.send();
+    },
+  );
 
   app.post<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/payments/setup-intent',
     {
@@ -2533,22 +2752,22 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
             description: 'Setup intent created',
             $ref: 'SetupIntentResponse',
           },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to set up a payment method', type: 'null' },
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to set up a payment method', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const setupIntent = await setUpPaymentMethod(request.params.slug)
-      return reply.code(201).send(setupIntent)
-    }
-  )
+      const setupIntent = await setUpPaymentMethod(request.params.slug);
+      return reply.code(201).send(setupIntent);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
-    Querystring: OrganizationProjectsQuery
+    Params: {slug: string};
+    Querystring: OrganizationProjectsQuery;
   }>(
     '/:slug/projects',
     {
@@ -2597,18 +2816,21 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
             description: 'Paginated list of organization projects',
             $ref: 'OrganizationProjectsResponse',
           },
-          500: { description: 'Failed to retrieve projects', type: 'null' },
+          500: {description: 'Failed to retrieve projects', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const projects = await getOrganizationProjects(request.params.slug, request.query)
-      return reply.send(projects)
-    }
-  )
+      const projects = await getOrganizationProjects(
+        request.params.slug,
+        request.query,
+      );
+      return reply.send(projects);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/roles',
     {
@@ -2627,23 +2849,26 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           required: ['slug'],
         },
         response: {
-          200: { $ref: 'OrganizationRoleResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: "Failed to retrieve the organization's roles", type: 'null' },
+          200: {$ref: 'OrganizationRoleResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {
+            description: "Failed to retrieve the organization's roles",
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const roles = await getOrganizationRoles(request.params.slug)
-      return reply.send(roles)
-    }
-  )
+      const roles = await getOrganizationRoles(request.params.slug);
+      return reply.send(roles);
+    },
+  );
 
   // GET SSO Provider
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/sso',
     {
@@ -2662,23 +2887,23 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           required: ['slug'],
         },
         response: {
-          200: { $ref: 'GetSSOProviderResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {$ref: 'GetSSOProviderResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const sso = await getSSOProvider(request.params.slug)
-      return reply.send(sso)
-    }
-  )
+      const sso = await getSSOProvider(request.params.slug);
+      return reply.send(sso);
+    },
+  );
 
   // PUT (Update SSO Provider)
   app.put<{
-    Params: { slug: string }
-    Body: UpdateSSOProviderBody
+    Params: {slug: string};
+    Body: UpdateSSOProviderBody;
   }>(
     '/:slug/sso',
     {
@@ -2696,25 +2921,28 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           },
           required: ['slug'],
         },
-        body: { $ref: 'UpdateSSOProviderBody' },
+        body: {$ref: 'UpdateSSOProviderBody'},
         response: {
-          200: { $ref: 'UpdateSSOProviderResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {$ref: 'UpdateSSOProviderResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const updated = await updateSSOProvider(request.params.slug, request.body)
-      return reply.send(updated)
-    }
-  )
+      const updated = await updateSSOProvider(
+        request.params.slug,
+        request.body,
+      );
+      return reply.send(updated);
+    },
+  );
 
   // POST (Create SSO Provider)
   app.post<{
-    Params: { slug: string }
-    Body: CreateSSOProviderBody
+    Params: {slug: string};
+    Body: CreateSSOProviderBody;
   }>(
     '/:slug/sso',
     {
@@ -2732,24 +2960,27 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           },
           required: ['slug'],
         },
-        body: { $ref: 'CreateSSOProviderBody' },
+        body: {$ref: 'CreateSSOProviderBody'},
         response: {
-          201: { $ref: 'CreateSSOProviderResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          201: {$ref: 'CreateSSOProviderResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const created = await createSSOProvider(request.params.slug, request.body)
-      return reply.status(201).send(created)
-    }
-  )
+      const created = await createSSOProvider(
+        request.params.slug,
+        request.body,
+      );
+      return reply.status(201).send(created);
+    },
+  );
 
   // DELETE SSO Provider
   app.delete<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/sso',
     {
@@ -2768,22 +2999,22 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           required: ['slug'],
         },
         response: {
-          200: { type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden action', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
+          200: {type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden action', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      await deleteSSOProvider(request.params.slug)
-      return reply.send()
-    }
-  )
+      await deleteSSOProvider(request.params.slug);
+      return reply.send();
+    },
+  );
 
   // GET organization's tax ID
   app.get<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/tax-ids',
     {
@@ -2802,24 +3033,24 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           required: ['slug'],
         },
         response: {
-          200: { $ref: 'TaxIdResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to retrieve tax ID', type: 'null' },
+          200: {$ref: 'TaxIdResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to retrieve tax ID', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const taxId = await getOrganizationTaxId(request.params.slug)
-      return reply.send(taxId)
-    }
-  )
+      const taxId = await getOrganizationTaxId(request.params.slug);
+      return reply.send(taxId);
+    },
+  );
 
   // PUT (Create or update tax ID)
   app.put<{
-    Params: { slug: string }
-    Body: CreateTaxIdBody
+    Params: {slug: string};
+    Body: CreateTaxIdBody;
   }>(
     '/:slug/tax-ids',
     {
@@ -2837,25 +3068,28 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           },
           required: ['slug'],
         },
-        body: { $ref: 'CreateTaxIdBody' },
+        body: {$ref: 'CreateTaxIdBody'},
         response: {
-          200: { $ref: 'TaxIdResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to create/update tax ID', type: 'null' },
+          200: {$ref: 'TaxIdResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to create/update tax ID', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const updated = await updateOrganizationTaxId(request.params.slug, request.body)
-      return reply.send(updated)
-    }
-  )
+      const updated = await updateOrganizationTaxId(
+        request.params.slug,
+        request.body,
+      );
+      return reply.send(updated);
+    },
+  );
 
   // DELETE tax ID
   app.delete<{
-    Params: { slug: string }
+    Params: {slug: string};
   }>(
     '/:slug/tax-ids',
     {
@@ -2874,23 +3108,23 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           required: ['slug'],
         },
         response: {
-          204: { type: 'null' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to delete tax ID', type: 'null' },
+          204: {type: 'null'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to delete tax ID', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      await deleteOrganizationTaxId(request.params.slug)
-      return reply.status(204).send()
-    }
-  )
+      await deleteOrganizationTaxId(request.params.slug);
+      return reply.status(204).send();
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
-    Querystring: OrgUsageQuery
+    Params: {slug: string};
+    Querystring: OrgUsageQuery;
   }>(
     '/:slug/usage',
     {
@@ -2930,23 +3164,26 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           },
         },
         response: {
-          200: { $ref: 'OrgUsageResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to get usage stats', type: 'null' },
+          200: {$ref: 'OrgUsageResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to get usage stats', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const usage = await getOrganizationUsage(request.params.slug, request.query)
-      return reply.send(usage)
-    }
-  )
+      const usage = await getOrganizationUsage(
+        request.params.slug,
+        request.query,
+      );
+      return reply.send(usage);
+    },
+  );
 
   app.get<{
-    Params: { slug: string }
-    Querystring: OrgDailyUsageQuery
+    Params: {slug: string};
+    Querystring: OrgDailyUsageQuery;
   }>(
     '/:slug/usage/daily',
     {
@@ -2986,22 +3223,25 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
           },
         },
         response: {
-          200: { $ref: 'OrgDailyUsageResponse' },
-          401: { description: 'Unauthorized', type: 'null' },
-          403: { description: 'Forbidden', type: 'null' },
-          429: { description: 'Rate limit exceeded', type: 'null' },
-          500: { description: 'Failed to get usage stats', type: 'null' },
+          200: {$ref: 'OrgDailyUsageResponse'},
+          401: {description: 'Unauthorized', type: 'null'},
+          403: {description: 'Forbidden', type: 'null'},
+          429: {description: 'Rate limit exceeded', type: 'null'},
+          500: {description: 'Failed to get usage stats', type: 'null'},
         },
       },
     },
     async (request, reply) => {
-      const dailyUsage = await getDailyOrganizationUsage(request.params.slug, request.query)
-      return reply.send(dailyUsage)
-    }
-  )
+      const dailyUsage = await getDailyOrganizationUsage(
+        request.params.slug,
+        request.query,
+      );
+      return reply.send(dailyUsage);
+    },
+  );
 
   app.post<{
-    Body: CreateAwsBilledOrganizationBody
+    Body: CreateAwsBilledOrganizationBody;
   }>(
     '/cloud-marketplace',
     {
@@ -3009,24 +3249,25 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Creates organization billed by AWS Marketplace',
         tags: ['Organizations'],
         operationId: 'OrganizationsController_createAwsBilledOrganization',
-        body: { $ref: 'CreateAwsBilledOrganizationBody' },
+        body: {$ref: 'CreateAwsBilledOrganizationBody'},
         response: {
-          201: { $ref: 'OrganizationResponse' },
+          201: {$ref: 'OrganizationResponse'},
           500: {
-            description: 'Failed to create organization billed by AWS Marketplace',
+            description:
+              'Failed to create organization billed by AWS Marketplace',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      const org = await createAwsMarketplaceOrganization(request.body)
-      return reply.code(201).send(org)
-    }
-  )
+      const org = await createAwsMarketplaceOrganization(request.body);
+      return reply.code(201).send(org);
+    },
+  );
 
   app.post<{
-    Body: ConfirmCreateSubscriptionChangeBody
+    Body: ConfirmCreateSubscriptionChangeBody;
   }>(
     '/confirm-subscription',
     {
@@ -3034,24 +3275,27 @@ const organizationRoutes: FastifyPluginAsync = async (app) => {
         description: 'Confirm subscription change and apply pending changes',
         tags: ['Organizations'],
         operationId: 'OrganizationsController_confirmSubscription',
-        body: { $ref: 'ConfirmCreateSubscriptionChangeBody' },
+        body: {$ref: 'ConfirmCreateSubscriptionChangeBody'},
         response: {
-          201: { $ref: 'CreateOrganizationResponse' },
-          202: { $ref: 'PendingConfirmationResponse' },
-          500: { description: 'Failed to confirm subscription changes', type: 'null' },
+          201: {$ref: 'CreateOrganizationResponse'},
+          202: {$ref: 'PendingConfirmationResponse'},
+          500: {
+            description: 'Failed to confirm subscription changes',
+            type: 'null',
+          },
         },
       },
     },
     async (request, reply) => {
-      const result = await _confirmSubscriptionChange(request.body)
+      const result = await _confirmSubscriptionChange(request.body);
 
       if ('pending_payment_intent_secret' in result) {
-        return reply.code(201).send(result)
+        return reply.code(201).send(result);
       }
 
-      return reply.code(202).send(result)
-    }
-  )
-}
+      return reply.code(202).send(result);
+    },
+  );
+};
 
-export default organizationRoutes
+export default organizationRoutes;

@@ -1,10 +1,25 @@
-> :warning: This project is for educational purposes only.
+<p align="center">
+  <a href="https://paybill.dev" target="_blank">
+    <picture>
+      <!-- Dark mode -->
+      <source srcset="https://paybill.dev/logo-wordmark--dark.png" media="(prefers-color-scheme: dark)" />
+      <!-- Light mode (default) -->
+      <img src="https://paybill.dev/logo-wordmark--light.png" width="180" alt="Logo" />
+    </picture>
+  </a>
+</p>
 
-> :info: am also looking for a job so email me at [<ebartile@gmail.com>](mailto:<ebartile@gmail.com>). Only contact me if the compensation is reasonable.
+**Paybill** builds foundational platforms for **modern SaaS systems** and **safe AI-driven applications**.
 
-# Paybill Platform Api
+We focus on **control, predictability, and security** — enabling platforms and agents to operate within clearly defined boundaries rather than unchecked automation.
 
-Paybill Platform Api is an **EKS-based Multi-Tenant SaaS solution** designed to deploy and manage control plane and tenant infrastructure in a secure, scalable, and GitOps-driven manner.
+> :warning: This project is under development.
+
+> :info: If your looking for a demo or support [<admin@paybill.dev>](mailto:<admin@paybill.dev>).
+
+# Platform Api
+
+Platform Api is an **EKS-based Multi-Tenant SaaS solution** designed to deploy and manage control plane and tenant infrastructure in a secure, scalable, and GitOps-driven manner.
 
 ## CI/CD & Deployment Pipelines
 
@@ -63,20 +78,20 @@ The control plane is responsible for provisioning and managing:
 
 ## AWS Procedure Requirements
 
-For more details, you can go through the [aws documentation](./terraform/aws/README.md).
+For more details, you can go through the [aws documentation](https://github.com/paybilldev/terraform-aws-builder/README.md).
 
 ## Azure Procedure Requirements
 
-For more details, you can go through the [azure documentation](./terraform/azure/README.md).
+For more details, you can go through the [azure documentation](https://github.com/paybilldev/terraform-azure-builderREADME.md).
 
 ## GCP Procedure Requirements
 
-For more details, you can go through the [gcp documentation](./terraform/gcp/README.md).
+For more details, you can go through the [gcp documentation](https://github.com/paybilldev/terraform-gcp-builder/README.md).
 
 ## IBM Procedure Requirements
 
-For more details, you can go through the [ibm documentation](./terraform/ibm/README.md).
+For more details, you can go through the [ibm documentation](https://github.com/paybilldev/terraform-ibm-builder/README.md).
 
 ## Oracle Procedure Requirements
 
-For more details, you can go through the [oracle documentation](./terraform/oracle/README.md).
+For more details, you can go through the [oracle documentation](https://github.com/paybilldev/terraform-oracle-builder/README.md).

@@ -1,27 +1,27 @@
-import { z } from 'zod'
-import { zodToJsonSchema } from '../utils/zod-to-json-schema.js'
+import {z} from 'zod';
+import {zodToJsonSchema} from '../utils/zod-to-json-schema.js';
 
 const UpdatePrivateLinkBodySchema = z.object({
   appliedSuccessfully: z.boolean(),
   currentConfig: z.object({
     enabled: z.boolean(),
   }),
-})
+});
 
 const PrivateLinkResponseSchema = z.object({
   appliedSuccessfully: z.boolean(),
   currentConfig: z.object({
     enabled: z.boolean(),
   }),
-})
+});
 
 const ListRepositoryBranchesResponseSchema = z.object({
   branches: z.array(
     z.object({
       name: z.string(),
-    })
+    }),
   ),
-})
+});
 
 const ListGitHubRepositoriesResponseSchema = z.object({
   partial_response_due_to_sso: z.boolean(),
@@ -31,16 +31,16 @@ const ListGitHubRepositoriesResponseSchema = z.object({
       id: z.number(),
       installation_id: z.number(),
       name: z.string(),
-    })
+    }),
   ),
-})
+});
 
 const UpdateGitHubConnectionBodySchema = z.object({
   branch_limit: z.number().optional(),
   new_branch_per_pr: z.boolean().optional(),
   changes_only: z.boolean().optional(),
   workdir: z.string().optional(),
-})
+});
 
 const CreateGitHubConnectionResponseSchema = z.object({
   branch_limit: z.number(),
@@ -51,7 +51,7 @@ const CreateGitHubConnectionResponseSchema = z.object({
   changes_only: z.boolean(),
   updated_at: z.string(),
   workdir: z.string(),
-})
+});
 
 const CreateGitHubConnectionBodySchema = z.object({
   branch_limit: z.number().optional(),
@@ -61,7 +61,7 @@ const CreateGitHubConnectionBodySchema = z.object({
   repository_id: z.number(),
   changes_only: z.boolean().optional(),
   workdir: z.string().optional(),
-})
+});
 
 const ListGitHubConnectionsResponseSchema = z.object({
   connections: z.array(
@@ -95,23 +95,23 @@ const ListGitHubConnectionsResponseSchema = z.object({
         .nullable(),
 
       workdir: z.string(),
-    })
+    }),
   ),
-})
+});
 
 const GitHubBranchResponseSchema = z.object({
   name: z.string(),
-})
+});
 
 const CreateGitHubAuthorizationBodySchema = z.object({
   code: z.string(),
-})
+});
 
 const GitHubAuthorizationResponseSchema = z.object({
   id: z.number(),
   sender_id: z.number(),
   user_id: z.number(),
-})
+});
 
 const GetOrganizationIntegrationResponseSchema = z.object({
   added_by: z.object({
@@ -130,7 +130,7 @@ const GetOrganizationIntegrationResponseSchema = z.object({
       organization_integration_id: z.string(),
       project_ref: z.string(),
       updated_at: z.string(),
-    })
+    }),
   ),
 
   id: z.string(),
@@ -148,7 +148,7 @@ const GetOrganizationIntegrationResponseSchema = z.object({
   }),
 
   updated_at: z.string(),
-})
+});
 
 const GetUserOrganizationIntegrationResponseSchema = z.object({
   added_by: z.object({
@@ -171,116 +171,141 @@ const GetUserOrganizationIntegrationResponseSchema = z.object({
   }),
 
   updated_at: z.string(),
-})
+});
 
 export type GetUserOrganizationIntegrationResponse = z.infer<
   typeof GetUserOrganizationIntegrationResponseSchema
->
+>;
 
 export const GetUserOrganizationIntegrationResponseJsonSchema = zodToJsonSchema(
   GetUserOrganizationIntegrationResponseSchema,
   {
     name: 'GetUserOrganizationIntegrationResponse',
-  }
-)
+  },
+);
 
 export type GetOrganizationIntegrationResponse = z.infer<
   typeof GetOrganizationIntegrationResponseSchema
->
+>;
 
 export const GetOrganizationIntegrationResponseJsonSchema = zodToJsonSchema(
   GetOrganizationIntegrationResponseSchema,
   {
     name: 'GetOrganizationIntegrationResponse',
-  }
-)
+  },
+);
 
-export type GitHubAuthorizationResponse = z.infer<typeof GitHubAuthorizationResponseSchema>
+export type GitHubAuthorizationResponse = z.infer<
+  typeof GitHubAuthorizationResponseSchema
+>;
 
 export const GitHubAuthorizationResponseJsonSchema = zodToJsonSchema(
   GitHubAuthorizationResponseSchema,
   {
     name: 'GitHubAuthorizationResponse',
-  }
-)
+  },
+);
 
-export type CreateGitHubAuthorizationBody = z.infer<typeof CreateGitHubAuthorizationBodySchema>
+export type CreateGitHubAuthorizationBody = z.infer<
+  typeof CreateGitHubAuthorizationBodySchema
+>;
 
 export const CreateGitHubAuthorizationBodyJsonSchema = zodToJsonSchema(
   CreateGitHubAuthorizationBodySchema,
   {
     name: 'CreateGitHubAuthorizationBody',
-  }
-)
+  },
+);
 
-export type GitHubBranchResponse = z.infer<typeof GitHubBranchResponseSchema>
+export type GitHubBranchResponse = z.infer<typeof GitHubBranchResponseSchema>;
 
-export const GitHubBranchResponseJsonSchema = zodToJsonSchema(GitHubBranchResponseSchema, {
-  name: 'GitHubBranchResponse',
-})
+export const GitHubBranchResponseJsonSchema = zodToJsonSchema(
+  GitHubBranchResponseSchema,
+  {
+    name: 'GitHubBranchResponse',
+  },
+);
 
-export type ListGitHubConnectionsResponse = z.infer<typeof ListGitHubConnectionsResponseSchema>
+export type ListGitHubConnectionsResponse = z.infer<
+  typeof ListGitHubConnectionsResponseSchema
+>;
 
 export const ListGitHubConnectionsResponseJsonSchema = zodToJsonSchema(
   ListGitHubConnectionsResponseSchema,
   {
     name: 'ListGitHubConnectionsResponse',
-  }
-)
+  },
+);
 
-export type CreateGitHubConnectionBody = z.infer<typeof CreateGitHubConnectionBodySchema>
+export type CreateGitHubConnectionBody = z.infer<
+  typeof CreateGitHubConnectionBodySchema
+>;
 
 export const CreateGitHubConnectionBodyJsonSchema = zodToJsonSchema(
   CreateGitHubConnectionBodySchema,
   {
     name: 'CreateGitHubConnectionBody',
-  }
-)
+  },
+);
 
-export type CreateGitHubConnectionResponse = z.infer<typeof CreateGitHubConnectionResponseSchema>
+export type CreateGitHubConnectionResponse = z.infer<
+  typeof CreateGitHubConnectionResponseSchema
+>;
 
 export const CreateGitHubConnectionResponseJsonSchema = zodToJsonSchema(
   CreateGitHubConnectionResponseSchema,
   {
     name: 'CreateGitHubConnectionResponse',
-  }
-)
+  },
+);
 
-export type UpdateGitHubConnectionBody = z.infer<typeof UpdateGitHubConnectionBodySchema>
+export type UpdateGitHubConnectionBody = z.infer<
+  typeof UpdateGitHubConnectionBodySchema
+>;
 
 export const UpdateGitHubConnectionBodyJsonSchema = zodToJsonSchema(
   UpdateGitHubConnectionBodySchema,
   {
     name: 'UpdateGitHubConnectionBody',
-  }
-)
+  },
+);
 
-export type ListGitHubRepositoriesResponse = z.infer<typeof ListGitHubRepositoriesResponseSchema>
+export type ListGitHubRepositoriesResponse = z.infer<
+  typeof ListGitHubRepositoriesResponseSchema
+>;
 
 export const ListGitHubRepositoriesResponseJsonSchema = zodToJsonSchema(
   ListGitHubRepositoriesResponseSchema,
   {
     name: 'ListGitHubRepositoriesResponse',
-  }
-)
+  },
+);
 
-export type ListRepositoryBranchesResponse = z.infer<typeof ListRepositoryBranchesResponseSchema>
+export type ListRepositoryBranchesResponse = z.infer<
+  typeof ListRepositoryBranchesResponseSchema
+>;
 
 export const ListRepositoryBranchesResponseJsonSchema = zodToJsonSchema(
   ListRepositoryBranchesResponseSchema,
   {
     name: 'ListRepositoryBranchesResponse',
-  }
-)
+  },
+);
 
-export type PrivateLinkResponse = z.infer<typeof PrivateLinkResponseSchema>
+export type PrivateLinkResponse = z.infer<typeof PrivateLinkResponseSchema>;
 
-export const PrivateLinkResponseJsonSchema = zodToJsonSchema(PrivateLinkResponseSchema, {
-  name: 'PrivateLinkResponse',
-})
+export const PrivateLinkResponseJsonSchema = zodToJsonSchema(
+  PrivateLinkResponseSchema,
+  {
+    name: 'PrivateLinkResponse',
+  },
+);
 
-export type UpdatePrivateLinkBody = z.infer<typeof UpdatePrivateLinkBodySchema>
+export type UpdatePrivateLinkBody = z.infer<typeof UpdatePrivateLinkBodySchema>;
 
-export const UpdatePrivateLinkBodyJsonSchema = zodToJsonSchema(UpdatePrivateLinkBodySchema, {
-  name: 'UpdatePrivateLinkBody',
-})
+export const UpdatePrivateLinkBodyJsonSchema = zodToJsonSchema(
+  UpdatePrivateLinkBodySchema,
+  {
+    name: 'UpdatePrivateLinkBody',
+  },
+);

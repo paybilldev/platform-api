@@ -1,4 +1,4 @@
-import type { FastifyPluginAsync } from 'fastify'
+import type {FastifyPluginAsync} from 'fastify';
 import {
   CreateUserBody,
   CreateUserReponse,
@@ -13,10 +13,10 @@ import {
   UpdateEmailBody,
   SignUpBody,
   ResetPasswordBody,
-} from '../openapi/index.js'
+} from '../openapi/index.js';
 
 interface DeleteUserQuery {
-  soft_delete?: boolean
+  soft_delete?: boolean;
 }
 
 async function signUpUser(body: SignUpBody): Promise<void> {
@@ -32,88 +32,104 @@ async function updateEmail(body: UpdateEmailBody): Promise<void> {
 }
 async function getAuthConfig(ref: string): Promise<AuthConfigResponse> {
   // TODO:
-  return {} as AuthConfigResponse
+  return {} as AuthConfigResponse;
 }
 
 export const updateAuthConfig = async (
   ref: string,
-  body: UpdateAuthConfigBody
+  body: UpdateAuthConfigBody,
 ): Promise<AuthConfigResponse> => {
   // TODO:
-  return {} as AuthConfigResponse
-}
+  return {} as AuthConfigResponse;
+};
 
 export const updateConfigHooks = async (
   ref: string,
-  body: UpdateAuthConfigHooksBody
+  body: UpdateAuthConfigHooksBody,
 ): Promise<AuthConfigResponse> => {
   //TODO:
-  return {} as AuthConfigResponse
-}
+  return {} as AuthConfigResponse;
+};
 
-export const sendInvite = async (ref: string, body: UserBody): Promise<null> => {
+export const sendInvite = async (
+  ref: string,
+  body: UserBody,
+): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
-export const sendMagicLink = async (ref: string, body: UserBody): Promise<null> => {
+export const sendMagicLink = async (
+  ref: string,
+  body: UserBody,
+): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
 export const sendOtp = async (ref: string, body: UserBody): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
-export const sendRecover = async (ref: string, body: UserBody): Promise<null> => {
+export const sendRecover = async (
+  ref: string,
+  body: UserBody,
+): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
-export const deleteUserById = async (ref: string, id: string): Promise<null> => {
+export const deleteUserById = async (
+  ref: string,
+  id: string,
+): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
 async function getTemplate(ref: string, templateName: string): Promise<null> {
   // TODO:
-  return null
+  return null;
 }
 
-export const createUser = async (ref: string, body: CreateUserBody): Promise<CreateUserReponse> => {
+export const createUser = async (
+  ref: string,
+  body: CreateUserBody,
+): Promise<CreateUserReponse> => {
   // TODO:
-  return {} as CreateUserReponse
-}
+  return {} as CreateUserReponse;
+};
 
 export const updateUserById = async (
   ref: string,
   id: string,
-  body: UpdateUserBody
+  body: UpdateUserBody,
 ): Promise<UpdateUserReponse> => {
   // TODO:
-  return {} as UpdateUserReponse
-}
+  return {} as UpdateUserReponse;
+};
 
 export const deleteFactors = async (ref: string, id: string): Promise<null> => {
   // TODO:
-  return null
-}
+  return null;
+};
 
 export const validateSpam = async (
   ref: string,
-  body: ValidateSpamBody
+  body: ValidateSpamBody,
 ): Promise<ValidateSpamResponse> => {
   // TODO:
-  return {} as ValidateSpamResponse
-}
+  return {} as ValidateSpamResponse;
+};
 
-const authRoutes: FastifyPluginAsync = async (app) => {
-  app.get<{ Params: { ref: string } }>(
+const authRoutes: FastifyPluginAsync = async app => {
+  app.get<{Params: {ref: string}}>(
     '/:ref/config',
     {
       schema: {
-        description: 'Retrieve Auth configuration for a given project reference.',
+        description:
+          'Retrieve Auth configuration for a given project reference.',
         tags: ['Auth'],
         operationId: 'AuthConfigController_getAuthConfig',
         params: {
@@ -150,12 +166,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getAuthConfig(request.params.ref)
-      return reply.send(config)
-    }
-  )
+      const config = await getAuthConfig(request.params.ref);
+      return reply.send(config);
+    },
+  );
 
-  app.patch<{ Params: { ref: string }; Body: UpdateAuthConfigBody }>(
+  app.patch<{Params: {ref: string}; Body: UpdateAuthConfigBody}>(
     '/:ref/config',
     {
       schema: {
@@ -200,12 +216,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await updateAuthConfig(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await updateAuthConfig(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.patch<{ Params: { ref: string }; Body: UpdateAuthConfigHooksBody }>(
+  app.patch<{Params: {ref: string}; Body: UpdateAuthConfigHooksBody}>(
     '/:ref/config/hooks',
     {
       schema: {
@@ -250,12 +266,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await updateConfigHooks(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await updateConfigHooks(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: UserBody }>(
+  app.post<{Params: {ref: string}; Body: UserBody}>(
     '/:ref/invite',
     {
       schema: {
@@ -301,12 +317,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await sendInvite(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await sendInvite(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: UserBody }>(
+  app.post<{Params: {ref: string}; Body: UserBody}>(
     '/:ref/magiclink',
     {
       schema: {
@@ -352,12 +368,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await sendMagicLink(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await sendMagicLink(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: UserBody }>(
+  app.post<{Params: {ref: string}; Body: UserBody}>(
     '/:ref/otp',
     {
       schema: {
@@ -403,12 +419,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await sendOtp(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await sendOtp(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: UserBody }>(
+  app.post<{Params: {ref: string}; Body: UserBody}>(
     '/:ref/recover',
     {
       schema: {
@@ -454,12 +470,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await sendRecover(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await sendRecover(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.get<{ Params: { ref: string; template: string } }>(
+  app.get<{Params: {ref: string; template: string}}>(
     '/:ref/templates/:template',
     {
       schema: {
@@ -508,12 +524,15 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await getTemplate(request.params.ref, request.params.template)
-      return reply.send(config)
-    }
-  )
+      const config = await getTemplate(
+        request.params.ref,
+        request.params.template,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: CreateUserBody }>(
+  app.post<{Params: {ref: string}; Body: CreateUserBody}>(
     '/:ref/users',
     {
       schema: {
@@ -558,12 +577,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await createUser(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await createUser(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.delete<{ Params: { ref: string; id: string }; Query: DeleteUserQuery }>(
+  app.delete<{Params: {ref: string; id: string}; Query: DeleteUserQuery}>(
     '/:ref/users/:id',
     {
       schema: {
@@ -618,12 +637,15 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await deleteUserById(request.params.ref, request.params.id)
-      return reply.send(config)
-    }
-  )
+      const config = await deleteUserById(
+        request.params.ref,
+        request.params.id,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.patch<{ Params: { ref: string; id: string }; Body: UpdateUserBody }>(
+  app.patch<{Params: {ref: string; id: string}; Body: UpdateUserBody}>(
     '/:ref/users/:id',
     {
       schema: {
@@ -672,12 +694,16 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await updateUserById(request.params.ref, request.params.id, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await updateUserById(
+        request.params.ref,
+        request.params.id,
+        request.body,
+      );
+      return reply.send(config);
+    },
+  );
 
-  app.delete<{ Params: { ref: string; id: string } }>(
+  app.delete<{Params: {ref: string; id: string}}>(
     '/:ref/users/:id/factors',
     {
       schema: {
@@ -723,12 +749,12 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      const config = await deleteFactors(request.params.ref, request.params.id)
-      return reply.send(config)
-    }
-  )
+      const config = await deleteFactors(request.params.ref, request.params.id);
+      return reply.send(config);
+    },
+  );
 
-  app.post<{ Params: { ref: string }; Body: ValidateSpamBody }>(
+  app.post<{Params: {ref: string}; Body: ValidateSpamBody}>(
     '/:ref/validate/spam',
     {
       schema: {
@@ -766,25 +792,26 @@ const authRoutes: FastifyPluginAsync = async (app) => {
             type: 'null',
           },
           500: {
-            description: 'Failed to validate spam based on the given email content',
+            description:
+              'Failed to validate spam based on the given email content',
             type: 'null',
           },
         },
       },
     },
     async (request, reply) => {
-      const config = await validateSpam(request.params.ref, request.body)
-      return reply.send(config)
-    }
-  )
+      const config = await validateSpam(request.params.ref, request.body);
+      return reply.send(config);
+    },
+  );
 
-  app.put<{ Body: UpdateEmailBody }>(
+  app.put<{Body: UpdateEmailBody}>(
     '/update-email',
     {
       schema: {
         description: 'Updates a user email address',
         tags: ['Auth'],
-        body: { $ref: 'UpdateEmailBody' },
+        body: {$ref: 'UpdateEmailBody'},
         operationId: 'UpdateEmailController_updateEmail',
         response: {
           200: {
@@ -795,48 +822,48 @@ const authRoutes: FastifyPluginAsync = async (app) => {
       },
     },
     async (request, reply) => {
-      await updateEmail(request.body)
-      return reply.send()
-    }
-  )
+      await updateEmail(request.body);
+      return reply.send();
+    },
+  );
 
-  app.post<{ Body: SignUpBody }>(
+  app.post<{Body: SignUpBody}>(
     '/signup',
     {
       schema: {
         description: 'Sign up with email and password',
         tags: ['Auth'],
-        body: { $ref: 'SignUpBody' },
+        body: {$ref: 'SignUpBody'},
         operationId: 'SignUpController_signUp',
         response: {
-          201: { description: 'User signed up successfully' },
+          201: {description: 'User signed up successfully'},
         },
       },
     },
     async (request, reply) => {
-      await signUpUser(request.body)
-      return reply.status(201).send()
-    }
-  )
+      await signUpUser(request.body);
+      return reply.status(201).send();
+    },
+  );
 
-  app.post<{ Body: ResetPasswordBody }>(
+  app.post<{Body: ResetPasswordBody}>(
     '/reset-password',
     {
       schema: {
         description: 'Reset password for email',
         tags: ['Auth'],
         operationId: 'ResetPasswordController_resetPassword',
-        body: { $ref: 'ResetPasswordBody' },
+        body: {$ref: 'ResetPasswordBody'},
         response: {
-          201: { description: 'Reset password email sent' },
+          201: {description: 'Reset password email sent'},
         },
       },
     },
     async (request, reply) => {
-      await resetPassword(request.body)
-      return reply.status(201).send()
-    }
-  )
-}
+      await resetPassword(request.body);
+      return reply.status(201).send();
+    },
+  );
+};
 
-export default authRoutes
+export default authRoutes;

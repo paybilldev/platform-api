@@ -1,14 +1,18 @@
 {
   "name": "platform-api",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "private": true,
   "type": "module",
-  "description": "API service for the paybill platform",
+  "description": "API service for the platform",
   "keywords": [
-    "paybill-api",
-    "paybill"
+    "platform-api",
+    "platform"
   ],
-  "license": "Apache-2.0",
+  "author": {
+    "name": "Paybill Ke Limited",
+    "email": "support@paybill.dev"
+  },
+  "license": "BSL-1.0",
   "files": [
     "README.md",
     "dist",
@@ -30,12 +34,12 @@
     "prettier:fix": "npm run prettier:cli -- --write",
     "eslint": "eslint --report-unused-disable-directives .",
     "eslint:fix": "npm run eslint -- --fix",
-    "docker:push": " docker push $IMAGE_REPO_NAME/$npm_package_name:$npm_package_version",
-    "docker:build:dev": "DOCKER_BUILDKIT=1 sudo docker build --build-arg NR_ENABLED=$NR_ENABLED_VALUE --build-arg FROM_FOLDER=services --build-arg SERVICE_NAME=api-service -t $IMAGE_REPO_NAME/$npm_package_name:$npm_package_version . -f ./Dockerfile",
-    "docker:push:dev": " docker push $IMAGE_REPO_NAME/$npm_package_name:$npm_package_version",
-    "docker:build:lambda": "DOCKER_BUILDKIT=1 sudo docker build -f Dockerfile.lambda --build-arg NR_ENABLED=$NR_ENABLED_VALUE -t $IMAGE_REPO_NAME/$npm_package_name:$npm_package_version-lambda .",
-    "docker:push:lambda": "sudo docker push $IMAGE_REPO_NAME/$npm_package_name:$npm_package_version-lambda",
-    "docker:run:lambda": "docker run -p 3000:3000 -d  $IMAGE_REPO_NAME/$npm_package_name:$npm_package_version-lambda",
+    "docker:build": "docker build -t $npm_package_name:$npm_package_version . -f ./Dockerfile",
+    "docker:push": " docker push $npm_package_name:$npm_package_version",
+    "docker:run": "docker run -p 4000:4000 -d $npm_package_name:$npm_package_version",
+    "docker:build:lambda": "DOCKER_BUILDKIT=1 sudo docker build -f Dockerfile.lambda --build-arg NR_ENABLED=$NR_ENABLED_VALUE -t $npm_package_name:$npm_package_version-lambda  . -f ./Dockerfile.lambda",
+    "docker:push:lambda": "sudo docker push $npm_package_name:$npm_package_version-lambda",
+    "docker:run:lambda": "docker run -p 4000:4000 -d  $npm_package_name:$npm_package_version-lambda",
     "start": "node dist/index.js"
   },
   "dependencies": {
@@ -63,5 +67,13 @@
     "neostandard": "^0.12.2",
     "tsx": "^4.19.1",
     "typescript": "^5.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paybilldev/platform-api.git",
+    "directory": "apps/platform-api"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

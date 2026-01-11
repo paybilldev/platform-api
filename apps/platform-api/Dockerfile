@@ -1,5 +1,5 @@
 # Check out https://hub.docker.com/_/node to select a new base image
-ARG nodeVer=18-alpine
+ARG nodeVer=20-alpine
 
 # select a base image to build from
 FROM node:$nodeVer AS base
