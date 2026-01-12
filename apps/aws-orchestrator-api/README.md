@@ -53,6 +53,12 @@ Each event type has a dedicated provider class responsible for executing the cor
 
 ---
 
+<p align="center">
+    <picture>
+      <img src="./public/images/high-level-arch.png" alt="Low Level Architecture" />
+    </picture>
+</p>
+
 ### 2. Tenant Provisioning Flow
 
 When a tenant provisioning event is received:
