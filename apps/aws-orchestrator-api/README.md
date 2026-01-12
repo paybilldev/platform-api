@@ -23,6 +23,8 @@ The service is built on Fastify and exposes a REST API that receives cloud event
 
 This project is designed to be used as the control plane component in a multi-tenant SaaS platform.
 
+> :info: This project depends of the  [Platform Builder Terraform Project](https://github.com/paybilldev/terraform-aws-platform-builder).
+
 ---
 
 ## What This Service Does
