@@ -78,20 +78,20 @@ The control plane is responsible for provisioning and managing:
 
 ## AWS Procedure Requirements
 
-For more details, you can go through the [aws documentation](https://github.com/paybilldev/terraform-aws-builder/README.md).
+For more details, you can go through the [aws documentation](https://github.com/paybilldev/terraform-aws-platform-builder/README.md).
 
 ## Azure Procedure Requirements
 
-For more details, you can go through the [azure documentation](https://github.com/paybilldev/terraform-azure-builderREADME.md).
+For more details, you can go through the [azure documentation](https://github.com/paybilldev/terraform-azure-platform-builderREADME.md).
 
 ## GCP Procedure Requirements
 
-For more details, you can go through the [gcp documentation](https://github.com/paybilldev/terraform-gcp-builder/README.md).
+For more details, you can go through the [gcp documentation](https://github.com/paybilldev/terraform-gcp-platform-builder/README.md).
 
 ## IBM Procedure Requirements
 
-For more details, you can go through the [ibm documentation](https://github.com/paybilldev/terraform-ibm-builder/README.md).
+For more details, you can go through the [ibm documentation](https://github.com/paybilldev/terraform-ibm-platform-builder/README.md).
 
 ## Oracle Procedure Requirements
 
-For more details, you can go through the [oracle documentation](https://github.com/paybilldev/terraform-oracle-builder/README.md).
+For more details, you can go through the [oracle documentation](https://github.com/paybilldev/terraform-oracle-platform-builder/README.md).
